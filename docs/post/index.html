@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="林华清" />
+      <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="林华清" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/" />
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+      
+    </section>
+    <aside class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts6/" class="link black dim">
+        ARTS6
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 03. 数组中重复的数字 最容易想到的解法就是map不重复算法
+// map不可重复解法 func findRepeatNumber(nums []int) int { unrepeat_map := make(map[int]int) for _, num := range nums { if _, ok := unrepeat_map[num]; ok { return num } else { unrepeat_map[num] = 1 } } return -1 } 看评论区有一个原地交换算法，很精妙。充分利用了长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内这一条件，实现如下：
+// 原地交换算法 func findRepeatNumber1(nums []int) int { index := 0 for index &lt; len(nums) { if index == nums[index] { index++ continue } if nums[nums[index]] == nums[index] { return nums[index] } temp := nums[nums[index]] nums[nums[index]] = nums[index] nums[index] = temp } return -1 } Review The Wide World of Software Testing 文章从上到下介绍了测试金字塔的几个阶段，都是一些概念。很赞同里面对单元测试的几个定义：
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts5/" class="link black dim">
+        ARTS #5
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 09. 用两个栈实现队列
+看了官方解答之后才做出来的。栈A存push的内容，栈B存remove的内容。栈B空的时候，把栈A的内容一一remove出来，然后再一一push到栈B里面。
+type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { return CQueue{ list.New(), list.New(), } } func (this *CQueue) AppendTail(value int) { this.stack1.PushBack(value) } func (this *CQueue) DeleteHead() int { if this.stack2.Len() &gt; 0 { back := this.stack2.Back() element := this.stack2.Remove(back) return element.(int) } index := 0 for index &lt; this.stack1.Len() { back := this.stack1.Back() element := this.stack1.Remove(back) this.stack2.PushBack(element) } if this.stack2.Len() == 0 { return -1 } back := this.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts4/" class="link black dim">
+        ARTS #4
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 10- I. 斐波那契数列 key：动态规划、python不用考虑int范围
+class Solution(object): def fib(self, n): &quot;&quot;&quot; :type n: int :rtype: int &quot;&quot;&quot; if n == 0: return 0 if n == 1: return 1 pre1 = 0 pre2 = 1 index = 2 while index &lt;= n: pre1 , pre2 = pre2, pre1 + pre2 index = index + 1 return pre2 % 1000000007 Review SOLID Go Design 这篇文章讲了solid原则在go上一些最佳实践的点，主要内容如下：
+ 单一原则： 在go程序要做到：每个 Go package 本身就是一个小的 Go 程序，一个单一的变更单元，具有单一的责任。从package的命名、实现的内容都要做到单一功能。  这里特意提到了unix的设计理念：small, sharp tools which combine to solve larger tasks, oftentimes tasks which were not envisioned by the original authors   开闭原则：也就是Software entities should be open for extension, but closed for modification。go本身不支持函数重载。很好的做到了being open for extension, are closed for modification 里式替换原则：go本身没有抽象类的概念，但是interface很好的支持了替换原则。 接口隔离原则：Clients should not be forced to depend on methods they do not use。 在go里面的最佳实践：A great rule of thumb for Go is accept interfaces, return structs.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts3/" class="link black dim">
+        ARTS #3
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 04. 二维数组中的查找 这道题是看了官方解法才解出来的，我个人的解题思路考虑了以下几个场景：
+ 暴力解法，发现会超时 暴力接法的基础上想到了二分法提供性能，但是想到这个题目的侧重点应该不是二分法，所以就没有正式动手。 联想到数组是有序的，所以开始考虑从左上角出发进行寻找，但是左上角需要考虑回退和绕圈的场景，比较复杂一直没有做出来。 暴力递归解法：  class Solution(object): def findNumberIn2DArray(self, matrix, target): &quot;&quot;&quot; :type matrix: List[List[int]] :type target: int :rtype: bool &quot;&quot;&quot; for row in matrix: for column in row: if column==target: return True return False 线性查找：
+class Solution(object): def findNumberIn2DArray(self, matrix, target): &quot;&quot;&quot; :type matrix: List[List[int]] :type target: int :rtype: bool &quot;&quot;&quot; row_nums = len(matrix) if row_nums == 0: return False column_nums = len(matrix[0]) if column_nums ==0: return False current_column = column_nums-1 current_row = 0 while True: if current_column &lt; 0 or current_row &gt;= row_nums: return False current_value = matrix[current_row][current_column] if current_value == target: return True if current_value &lt; target: current_row += 1 continue if current_value &gt; target: current_column -= 1 continue Review FIT: Failure Injection Testing 文章介绍了netflix的FIT（故障注入测试），大概内容如下：
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts2/" class="link black dim">
+        ARTS #2
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 83. 删除排序链表中的重复元素 非常简单的单向链表遍历
+# Definition for singly-linked list. # class ListNode(object): # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution(object): def deleteDuplicates(self, head): &quot;&quot;&quot; :type head: ListNode :rtype: ListNode &quot;&quot;&quot; if head is None: return head start = head current_node = head next_node = None while current_node.next: next_node = current_node.next if current_node.val != next_node.val: current_node = next_node if current_node.val == next_node.val: if next_node.next: current_node.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts1/" class="link black dim">
+        ARTS #1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 35. 搜索插入位置 暴力解法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; for i in range(len(nums)): if target == nums[i]: return i if target &lt; nums[i]: return i return len(nums) 自己写的丑陋二分法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; result = self.dichotomy(0, len(nums)-1, nums, target) return result def dichotomy(self, start, end, nums, target): if nums[start] == target: return start if nums[end] == target: return end if start == (end-1) or start == end: if nums[start] &gt; target: return start if nums[end] &lt; target: return end + 1 else: return end middle = int((start + end)/2) if nums[middle] == target: return middle if nums[middle] &lt; target: return self.
+    </div>
+  </div>
+
+        </div>
+      
+    </aside>
+    
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

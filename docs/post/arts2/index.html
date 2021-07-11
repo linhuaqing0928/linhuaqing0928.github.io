@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ARTS #2 | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Algorithm 83. 删除排序链表中的重复元素 非常简单的单向链表遍历
+# Definition for singly-linked list. # class ListNode(object): # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution(object): def deleteDuplicates(self, head): &quot;&quot;&quot; :type head: ListNode :rtype: ListNode &quot;&quot;&quot; if head is None: return head start = head current_node = head next_node = None while current_node.next: next_node = current_node.next if current_node.val != next_node.val: current_node = next_node if current_node.val == next_node.val: if next_node.next: current_node.">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ARTS #2" />
+<meta property="og:description" content="Algorithm 83. 删除排序链表中的重复元素 非常简单的单向链表遍历
+# Definition for singly-linked list. # class ListNode(object): # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution(object): def deleteDuplicates(self, head): &quot;&quot;&quot; :type head: ListNode :rtype: ListNode &quot;&quot;&quot; if head is None: return head start = head current_node = head next_node = None while current_node.next: next_node = current_node.next if current_node.val != next_node.val: current_node = next_node if current_node.val == next_node.val: if next_node.next: current_node." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/arts2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-07T20:34:39+08:00" />
+<meta property="article:modified_time" content="2021-07-07T20:34:39+08:00" />
+
+<meta itemprop="name" content="ARTS #2">
+<meta itemprop="description" content="Algorithm 83. 删除排序链表中的重复元素 非常简单的单向链表遍历
+# Definition for singly-linked list. # class ListNode(object): # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution(object): def deleteDuplicates(self, head): &quot;&quot;&quot; :type head: ListNode :rtype: ListNode &quot;&quot;&quot; if head is None: return head start = head current_node = head next_node = None while current_node.next: next_node = current_node.next if current_node.val != next_node.val: current_node = next_node if current_node.val == next_node.val: if next_node.next: current_node."><meta itemprop="datePublished" content="2021-07-07T20:34:39+08:00" />
+<meta itemprop="dateModified" content="2021-07-07T20:34:39+08:00" />
+<meta itemprop="wordCount" content="438">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS #2"/>
+<meta name="twitter:description" content="Algorithm 83. 删除排序链表中的重复元素 非常简单的单向链表遍历
+# Definition for singly-linked list. # class ListNode(object): # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution(object): def deleteDuplicates(self, head): &quot;&quot;&quot; :type head: ListNode :rtype: ListNode &quot;&quot;&quot; if head is None: return head start = head current_node = head next_node = None while current_node.next: next_node = current_node.next if current_node.val != next_node.val: current_node = next_node if current_node.val == next_node.val: if next_node.next: current_node."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/post/arts2/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/post/arts2/&amp;text=ARTS%20#2" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/post/arts2/&amp;title=ARTS%20#2" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ARTS #2</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-07-07T20:34:39+08:00">July 7, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="algorithm">Algorithm</h2>
+<p><a href="https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/">83. 删除排序链表中的重复元素</a>
+非常简单的单向链表遍历</p>
+<pre><code># Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def deleteDuplicates(self, head):
+        &quot;&quot;&quot;
+        :type head: ListNode
+        :rtype: ListNode
+        &quot;&quot;&quot;
+        if head is None:
+            return head
+        start = head
+        current_node = head
+        next_node = None
+        while current_node.next:
+            next_node = current_node.next
+            if current_node.val != next_node.val:
+                current_node = next_node
+            if current_node.val == next_node.val:
+                if next_node.next:
+                    current_node.next = next_node.next
+                else:
+                    current_node.next = None
+        return start
+</code></pre><h2 id="review">Review</h2>
+<p><a href="https://deepu.tech/functional-programming-in-go/">Easy functional programming techniques in Go</a></p>
+<h4 id="函数编程需要尽量做到的几个概念">函数编程需要尽量做到的几个概念</h4>
+<ul>
+<li>高阶函数：assign functions to variables, pass a function as an argument to another function or return a function from another</li>
+<li>闭包：从函数外部传值进入函数，在函数内部使用 并且在离开外部变量作用域后仍然可以使用该变量</li>
+<li>纯函数： a pure function should return values only based on the arguments passed and should not affect or depend on global state</li>
+<li>递归：Functional programming favors recursion over looping</li>
+<li>惰性计算：Lazy evaluation or non-strict evaluation is the process of delaying evaluation of an expression until it is needed。 spark就是典型的lazy evaluation</li>
+<li>Referential transparency：Functional programs do not have assignment statements, that is, the value of a variable in a functional program never changes once defined。go中默认是传值引用，因此可以实现referential transparency，但是注意不要传指针 不然就会破坏referential transparency.</li>
+</ul>
+<h4 id="个人观点">个人观点</h4>
+<p>通过这篇文章对函数编程有了更清晰的理解，之前对函数式编程就是简单的认为有了function first和闭包就是函数式编程。其实函数式编程应该是一个编程范式（或者说编程习惯），本质应该是像数学公式一样：数学公式只会通过输入的内容进行计算然后返回结果，而不会去改变输入值或者外部其他变量。 function first、闭包、lambda是实现函数式编程范式的一些手段</p>
+<p>另附上 <a href="https://github.com/robpike">robpike</a>大神用golang实现的几个高阶函数： <a href="https://github.com/robpike/filter">golang高阶函数</a> 虽然大神说不建议使用，应该使用for循环😂</p>
+<h2 id="tip">Tip</h2>
+<p>项目开发中遇到一个需求：</p>
+<ul>
+<li>对外提供一个查询接口A，调用方调用我这个接口进行信息查询，入参为一个list</li>
+<li>我需要根据这个list的内容调用第三方服务X进行内容查询 同时服务X的做了限速，查询qps只能为5</li>
+<li>需要将list的查询结果做聚合，再异步回调给调用者
+针对以上需求，设计了一个方案:</li>
+</ul>
+<ol>
+<li>全局设计一个任务队列 来的请求都创建一个任务往队列中丢 同一个请求创建的任务，都存一个resultChannel的指针。</li>
+<li>如果任务队列中有任务同时定时器达到200ms定时时刻，则起一个协程进行调用服务X的请求，请求结果回写到resultChannel中。</li>
+<li>通过waitgroup判断同一个请求的所有任务是否完成，如果都完成则从resultChannel中读取结果并进行聚合操作。
+知识点：waitgroup的使用、channel中套channnel、时间队列的使用（下周的ARTS认真看下timmer的源码然后分享下）</li>
+</ol>
+<pre><code>var Timer = make(chan time.Time)
+var TaskPool = make(chan *Task)
+
+func producerFunc(taskName string, burstyTasks chan *Task) {
+	var wg sync.WaitGroup
+	var resultChannel = make(chan string, 10)
+	for i := 0; i &lt; 10; i++ {
+		wg.Add(1)
+		i := i
+		go func() {
+			result := producer(i, taskName)
+			burstyTasks &lt;- &amp;Task{result, &amp;wg, resultChannel}
+		}()
+	}
+	wg.Wait()
+	for i := 0; i &lt; 10; i++ {
+		fmt.Println(&lt;-resultChannel)
+	}
+}
+
+func producer(i int, taskName string) string {
+	time.Sleep(10 * time.Millisecond)
+	return taskName + &quot; and &quot; + strconv.Itoa(i)
+}
+
+func consumer(taskPara *Task) string {
+	result := &quot;result of &quot; + taskPara.producerResult
+	return result
+}
+
+func rateLimitFunc(burstyLimiter chan time.Time) {
+	for t := range time.Tick(400 * time.Millisecond) {
+		burstyLimiter &lt;- t
+	}
+}
+
+type Task struct {
+	producerResult string
+	Wg             *sync.WaitGroup
+	ResultChannel  chan string
+}
+
+func RateLimit() {
+	go func() {
+		rateLimitFunc(Timer)
+	}()
+
+	go func() {
+		for task := range TaskPool {
+			task1 := task
+			&lt;-Timer
+			go func(taskPara *Task) {
+				time.Sleep(10 * time.Millisecond)
+				result := consumer(taskPara)
+				task.ResultChannel &lt;- result
+				fmt.Println(&quot;task:&quot;, result, time.Now())
+				taskPara.Wg.Done()
+			}(task1)
+		}
+	}()
+
+	go func() {
+		producerFunc(&quot;task1&quot;, TaskPool)
+	}()
+
+	go func() {
+		producerFunc(&quot;task2&quot;, TaskPool)
+	}()
+
+	time.Sleep(200 * time.Second)
+}
+</code></pre><h2 id="share">Share</h2>
+<p><a href="https://netflixtechblog.com/product-integration-testing-at-the-speed-of-netflix-72e4117734a7">Product Integration Testing at the Speed of Netflix</a>
+这片文章介绍了netfix如何如何进行端到端质量保障</p>
+<ol>
+<li>对HIT（High Impact Titles）的质量保障</li>
+</ol>
+<ul>
+<li>发布前：因为需求可能会变动，所以以手工测试为主</li>
+<li>发布后：自动化为主 我理解就是进行用例和功能回归</li>
+</ul>
+<ol start="2">
+<li>A/B测试自动化
+其实和A/B测试没啥关系，主要就是说了以下点：</li>
+</ol>
+<ul>
+<li>使用脚本进行自动化。通过让脚本足够参数化、封装，最终让脚本可reused。这样子后续的重复开发成本比较低</li>
+<li>使用python进行自动化开发、同时配合jenkins流水线来控制自动化执行流程</li>
+</ul>
+<ol start="3">
+<li>国际化适配</li>
+</ol>
+<ul>
+<li>在步骤2的脚本代码基础上，使用opt-in model设计模式封装然后简单的每个国家跑一遍一样的脚本</li>
+<li>因为需要重复的跑不同国家的自动化脚本，所以引入jenkins流水线的并发 来提高执行效率</li>
+</ul>
+<p>整篇文章看下来，可以发现没什么比较有借鉴性的地方，基本和自己之前做的自动化差不多 文中有一句话给其他想入手自动化测试的QA同学借鉴：treat test automation as a deliverable product and focus on delivering a minimum viable product (MVP) composed of reusable pieces. 就是自动化脚本其实也是代码，也要考虑可重用性、组件封装</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

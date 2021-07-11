@@ -1,0 +1,6 @@
+# Site settings
+baseurl = "https://example.org/"
+languageCode = "zh-cn"
+title = "林华清"
+theme = "gohugo-theme-ananke"
+publishDir = "docs"

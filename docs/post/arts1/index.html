@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ARTS #1 | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Algorithm 35. 搜索插入位置 暴力解法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; for i in range(len(nums)): if target == nums[i]: return i if target &lt; nums[i]: return i return len(nums) 自己写的丑陋二分法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; result = self.dichotomy(0, len(nums)-1, nums, target) return result def dichotomy(self, start, end, nums, target): if nums[start] == target: return start if nums[end] == target: return end if start == (end-1) or start == end: if nums[start] &gt; target: return start if nums[end] &lt; target: return end &#43; 1 else: return end middle = int((start &#43; end)/2) if nums[middle] == target: return middle if nums[middle] &lt; target: return self.">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ARTS #1" />
+<meta property="og:description" content="Algorithm 35. 搜索插入位置 暴力解法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; for i in range(len(nums)): if target == nums[i]: return i if target &lt; nums[i]: return i return len(nums) 自己写的丑陋二分法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; result = self.dichotomy(0, len(nums)-1, nums, target) return result def dichotomy(self, start, end, nums, target): if nums[start] == target: return start if nums[end] == target: return end if start == (end-1) or start == end: if nums[start] &gt; target: return start if nums[end] &lt; target: return end &#43; 1 else: return end middle = int((start &#43; end)/2) if nums[middle] == target: return middle if nums[middle] &lt; target: return self." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/arts1/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-07T20:25:15+08:00" />
+<meta property="article:modified_time" content="2021-07-07T20:25:15+08:00" />
+
+<meta itemprop="name" content="ARTS #1">
+<meta itemprop="description" content="Algorithm 35. 搜索插入位置 暴力解法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; for i in range(len(nums)): if target == nums[i]: return i if target &lt; nums[i]: return i return len(nums) 自己写的丑陋二分法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; result = self.dichotomy(0, len(nums)-1, nums, target) return result def dichotomy(self, start, end, nums, target): if nums[start] == target: return start if nums[end] == target: return end if start == (end-1) or start == end: if nums[start] &gt; target: return start if nums[end] &lt; target: return end &#43; 1 else: return end middle = int((start &#43; end)/2) if nums[middle] == target: return middle if nums[middle] &lt; target: return self."><meta itemprop="datePublished" content="2021-07-07T20:25:15+08:00" />
+<meta itemprop="dateModified" content="2021-07-07T20:25:15+08:00" />
+<meta itemprop="wordCount" content="588">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS #1"/>
+<meta name="twitter:description" content="Algorithm 35. 搜索插入位置 暴力解法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; for i in range(len(nums)): if target == nums[i]: return i if target &lt; nums[i]: return i return len(nums) 自己写的丑陋二分法：
+class Solution(object): def searchInsert(self, nums, target): &quot;&quot;&quot; :type nums: List[int] :type target: int :rtype: int &quot;&quot;&quot; result = self.dichotomy(0, len(nums)-1, nums, target) return result def dichotomy(self, start, end, nums, target): if nums[start] == target: return start if nums[end] == target: return end if start == (end-1) or start == end: if nums[start] &gt; target: return start if nums[end] &lt; target: return end &#43; 1 else: return end middle = int((start &#43; end)/2) if nums[middle] == target: return middle if nums[middle] &lt; target: return self."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/post/arts1/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/post/arts1/&amp;text=ARTS%20#1" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/post/arts1/&amp;title=ARTS%20#1" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ARTS #1</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-07-07T20:25:15+08:00">July 7, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="algorithm">Algorithm</h2>
+<p><a href="https://leetcode-cn.com/problems/search-insert-position/">35. 搜索插入位置</a>
+暴力解法：</p>
+<pre><code>class Solution(object):
+    def searchInsert(self, nums, target):
+        &quot;&quot;&quot;
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        &quot;&quot;&quot;
+        for i in range(len(nums)):
+            if target == nums[i]:
+                return i
+            if target &lt; nums[i]:
+                return i
+        return len(nums)
+</code></pre><p>自己写的丑陋二分法：</p>
+<pre><code>class Solution(object):
+    def searchInsert(self, nums, target):
+        &quot;&quot;&quot;
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        &quot;&quot;&quot;
+        result = self.dichotomy(0, len(nums)-1, nums, target)
+        return result
+
+    def dichotomy(self, start, end, nums, target):
+        if nums[start] == target:
+            return start
+        if nums[end] == target:
+            return end
+        if start == (end-1) or start == end:
+            if nums[start] &gt; target:
+                return start
+            if nums[end] &lt; target:
+                return end + 1
+            else:
+                return end
+        middle = int((start + end)/2)
+        if nums[middle] == target:
+            return middle
+        if nums[middle] &lt; target:
+            return self.dichotomy(middle, end, nums, target)
+        if nums[middle] &gt; target:
+            return self.dichotomy(start, middle, nums, target)
+</code></pre><p>官方的二分法：</p>
+<pre><code>class Solution(object):
+    def searchInsert(self, nums, target):
+        &quot;&quot;&quot;
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        &quot;&quot;&quot;
+        length = len(nums)
+        left = 0
+        right = length -1 
+        ans = length
+        while(left &lt;= right):
+            middle = int((left + right)/2)
+            if target &lt;= nums[middle]:
+                ans = middle
+                right = middle - 1
+            else:
+                left = middle + 1 
+        return ans
+</code></pre><p>关键点：middle要+1</p>
+<h2 id="review">Review</h2>
+<p><a href="https://talks.golang.org/2012/concurrency.slide#1">Go Concurrency Patterns</a>
+go实现并发的最最核心的观点</p>
+<ol>
+<li>Don&rsquo;t communicate by sharing memory, share memory by communicating</li>
+<li>Goroutines and channels are big ideas. They&rsquo;re tools for program construction.They&rsquo;re fun to play with, but don&rsquo;t overuse these ideas.</li>
+</ol>
+<p>文章概述：</p>
+<ul>
+<li>Concurrency is not parallelism 并发不是并行 这个程序员应该很清楚了 并发只是cpu的不断切换，本质还是只有一个内存并行 只有多核情况下才能实现并行</li>
+<li>go期望能让程序员简单易懂的实现程序并发</li>
+<li>本质是实现CSP模型</li>
+<li>goroutine有自己的stack 比thread轻便</li>
+<li>基础的channel没有buffer 会互相堵塞</li>
+<li>几个go并发的例子</li>
+</ul>
+<h2 id="tip">Tip</h2>
+<p>golang的协程与管道正式在项目中使用</p>
+<pre><code>//主线程中业务代码
+func BatchRhinoTaskDebug(rhinoDebugInfos *[]rhino.RhinoDebugInfo) []rhino.DebugLogResult {
+	debugResultChan := make(chan rhino.DebugLogResult)
+    // 开启多个协程进行业务处理
+	for _, rhinoDebugInfo := range *rhinoDebugInfos {
+		rhinoDebugInfo := rhinoDebugInfo
+		go func() {
+			RhinoTaskDebug(rhinoDebugInfo, debugResultChan)
+		}()
+	}
+    // 主线程中读取channel内容
+	var debugResults []rhino.DebugLogResult
+	for i := 0; i &lt; len(*rhinoDebugInfos); i++ {
+        // 因为声明的管道是堵塞式，只有子协程中往管道放入内容，主线程才能继续for循环
+		resultTemp := &lt;-debugResultChan
+		debugResults = append(debugResults, resultTemp)
+	}
+	return debugResults
+}
+// 协程的具体业务逻辑
+func RhinoTaskDebug(rhinoDebugInfo rhino.RhinoDebugInfo, resultChannel chan rhino.DebugLogResult) {
+	var err error
+	debugLogResult := rhino.DebugLogResult{}
+    // 在defer中统一将业务处理结果写入管道中 这样子主线程的管道堵塞处就能继续处理
+	defer func() {
+		debugLogResult.ResultError = err
+		resultChannel &lt;- debugLogResult
+	}()
+	// 具体的业务代码，生成结果
+	debugResult, err := extractDebugResult(debugLog)
+	if err != nil {
+		return
+	}
+	debugLogResult = *debugResult
+}
+
+
+</code></pre><h2 id="share">Share</h2>
+<p>分享一篇文章，关于golang是“值传递”还是“引用传递” 同时加上自己的理解
+<a href="https://mp.weixin.qq.com/s/dLeLqzoz00XypuqzYcwLiA">Go 到底是传值还是传引用</a></p>
+<h3 id="结论">结论</h3>
+<ul>
+<li>go永远是值传递
+<ul>
+<li>如果传的是string或者int 则传递给函数的是string或者int的副本（查看内存指针可以发现是不一样的） 在调用函数内部改变副本，不会对原值产生任何影响</li>
+<li>如果传的是指针 则传递给函数的是指针地址的复制值副本 在函数内部改变该指针的值，也不会对原值（指针）产生任何影响 但是可能可以指针直接改写内存块内存的值</li>
+<li>map 和 slice 传递的时候，在函数中对map和slice的修改会影响到原值，但是这个行为类似于指针：它们是包含指向底层 map 或 slice 数据的指针的描述符。go的runtime对map进行了相关封装，在传递map的时候相等于传递了map对应的指针</li>
+</ul>
+</li>
+</ul>
+<h3 id="代码样例">代码样例</h3>
+<h4 id="指针传递">指针传递</h4>
+<pre><code>func HelloFunc() {
+	// s := &quot;测试指针传递&quot;
+	// fmt.Println(&quot;传递前内存地址：&quot;, &amp;s)
+	// fmt.Println(&quot;传递前string的内容：&quot;, s)
+	// hello(&amp;s)
+	// fmt.Println(&quot;传递后内存地址：&quot;, &amp;s)
+	// fmt.Println(&quot;传递后string的内容：&quot;, s)
+
+	s := &quot;测试值传递&quot;
+	fmt.Println(&quot;传递前内存地址：&quot;, &amp;s)
+	fmt.Println(&quot;传递前string的内容：&quot;, s)
+	hello1(s)
+	fmt.Println(&quot;传递后内存地址：&quot;, &amp;s)
+	fmt.Println(&quot;传递后string的内容：&quot;, s)
+}
+
+func hello1(s string) {
+	fmt.Println(&quot;传递进来的string内容：&quot;, s)
+	fmt.Println(&quot;传递进来的string的内存地址：&quot;, &amp;s)
+
+	s = &quot;直接修改传递的副本的值&quot;
+
+	fmt.Println(&quot;修改后的string的内容：&quot;, s)
+	fmt.Println(&quot;修改后的string的内存地址：&quot;, &amp;s)
+}
+
+// 传递前内存地址： 0xc000012cf0
+// 传递前string的内容： 测试值传递
+// 传递进来的string内容： 测试值传递
+// 传递进来的string的内存地址： 0xc000012d10
+// 修改后的string的内容： 直接修改传递的副本的值
+// 修改后的string的内存地址： 0xc000012d10
+// 传递后内存地址： 0xc000012cf0
+// 传递后string的内容： 测试值传递
+</code></pre><h4 id="值传递">值传递</h4>
+<pre><code>func HelloFunc() {
+	s := &quot;测试指针传递&quot;
+	fmt.Println(&quot;传递前内存地址：&quot;, &amp;s)
+	fmt.Println(&quot;传递前string的内容：&quot;, s)
+	hello(&amp;s)
+	fmt.Println(&quot;传递后内存地址：&quot;, &amp;s)
+	fmt.Println(&quot;传递后string的内容：&quot;, s)
+
+	// s := &quot;测试值传递&quot;
+	// fmt.Println(&quot;传递前内存地址：&quot;, &amp;s)
+	// fmt.Println(&quot;传递前string的内容：&quot;, s)
+	// hello1(s)
+	// fmt.Println(&quot;传递后内存地址：&quot;, &amp;s)
+	// fmt.Println(&quot;传递后string的内容：&quot;, s)
+}
+
+func hello(s *string) {
+	fmt.Println(&quot;传递进来的指针：&quot;, s)
+	fmt.Println(&quot;传递进来的string内容：&quot;, *s)
+	fmt.Println(&quot;传递进来的指针的内存地址：&quot;, &amp;s)
+
+	*s = &quot;通过指针修改后的string内容&quot;
+
+	fmt.Println(&quot;修改后的指针：&quot;, s)
+	fmt.Println(&quot;修改后的string内容：&quot;, *s)
+	fmt.Println(&quot;修改后的指针的内存地址：&quot;, &amp;s)
+}
+// 传递前内存地址： 0xc000098cd0
+// 传递前string的内容： 测试指针传递
+// 传递进来的指针： 0xc000098cd0
+// 传递进来的string内容： 测试指针传递
+// 传递进来的指针的内存地址： 0xc0000b2020
+// 修改后的指针： 0xc000098cd0
+// 修改后的string内容： 通过指针修改后的string内容
+// 修改后的指针的内存地址： 0xc0000b2020
+// 传递后内存地址： 0xc000098cd0
+// 传递后string的内容： 通过指针修改后的string内容
+</code></pre><h4 id="map传递">map传递</h4>
+<pre><code>func MapFunc() {
+	m := make(map[string]string)
+	m[&quot;测试key&quot;] = &quot;修改前value&quot;
+	fmt.Printf(&quot;传递前的内存地址：%p\n&quot;, &amp;m)
+	fmt.Printf(&quot;传递前的map内容：%v\n&quot;, m)
+	mapHello(m)
+
+	fmt.Printf(&quot;传递后的内存地址：%p\n&quot;, &amp;m)
+	fmt.Printf(&quot;传递后的map内容：%v\n&quot;, m)
+}
+
+func mapHello(p map[string]string) {
+	fmt.Printf(&quot;传递进来的内存地址：%p\n&quot;, &amp;p)
+	fmt.Printf(&quot;传递进来的map内容：%v\n&quot;, p)
+	p[&quot;测试key&quot;] = &quot;修改后value&quot;
+	fmt.Printf(&quot;修改后的内存地址：%p\n&quot;, &amp;p)
+	fmt.Printf(&quot;修改后的map内容：%v\n&quot;, p)
+}
+// 传递前的内存地址：0xc000010028
+// 传递前的map内容：map[测试key:修改前value]
+// 传递进来的内存地址：0xc000010038
+// 传递进来的map内容：map[测试key:修改前value]
+// 修改后的内存地址：0xc000010038
+// 修改后的map内容：map[测试key:修改后value]
+// 传递后的内存地址：0xc000010028
+// 传递后的map内容：map[测试key:修改后value]
+</code></pre><p>本周工作心得：</p>
+<ul>
+<li>调SDK接口一定要认真看下源码 不然很容易出现莫名其妙的问题</li>
+<li>一个问题花了半天时间定位不出来 先暂停半天 再回过头来，会有意想不到的思路</li>
+</ul>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
