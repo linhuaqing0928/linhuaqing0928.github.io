@@ -128,6 +128,32 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/httpmock/" class="color-inherit dim link">
+            Golang单元测试实战：httpMock
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
+ Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
+过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/httpmock/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts6/" class="color-inherit dim link">
             ARTS6
             </a>
@@ -172,38 +198,18 @@ type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { ret
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts4/" class="color-inherit dim link">
-            ARTS #4
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 10- I. 斐波那契数列 key：动态规划、python不用考虑int范围
-class Solution(object): def fib(self, n): &quot;&quot;&quot; :type n: int :rtype: int &quot;&quot;&quot; if n == 0: return 0 if n == 1: return 1 pre1 = 0 pre2 = 1 index = 2 while index &lt;= n: pre1 , pre2 = pre2, pre1 + pre2 index = index + 1 return pre2 % 1000000007 Review SOLID Go Design 这篇文章讲了solid原则在go上一些最佳实践的点，主要内容如下：
- 单一原则： 在go程序要做到：每个 Go package 本身就是一个小的 Go 程序，一个单一的变更单元，具有单一的责任。从package的命名、实现的内容都要做到单一功能。  这里特意提到了unix的设计理念：small, sharp tools which combine to solve larger tasks, oftentimes tasks which were not envisioned by the original authors   开闭原则：也就是Software entities should be open for extension, but closed for modification。go本身不支持函数重载。很好的做到了being open for extension, are closed for modification 里式替换原则：go本身没有抽象类的概念，但是interface很好的支持了替换原则。 接口隔离原则：Clients should not be forced to depend on methods they do not use。 在go里面的最佳实践：A great rule of thumb for Go is accept interfaces, return structs.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts4/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts4/" class="link black dim">
+              ARTS #4
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts3/" class="link black dim">

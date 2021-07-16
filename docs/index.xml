@@ -6,7 +6,18 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 07 Jul 2021 20:34:54 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Jul 2021 17:48:07 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang单元测试实战：httpMock</title>
+      <link>http://linhuaqing0928.github.io/post/httpmock/</link>
+      <pubDate>Fri, 16 Jul 2021 17:48:07 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/httpmock/</guid>
+      <description>单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
+ Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
+过程 被测代码 package http_request_demo import ( &amp;quot;errors&amp;quot; &amp;quot;io/ioutil&amp;quot; &amp;quot;net/http&amp;quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&amp;quot;GET&amp;quot;, url, nil) if err !</description>
+    </item>
+    
     <item>
       <title>ARTS6</title>
       <link>http://linhuaqing0928.github.io/post/arts6/</link>

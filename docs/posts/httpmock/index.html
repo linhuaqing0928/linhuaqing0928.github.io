@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Golang单元测试实战：httpMock | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Golang单元测试实战：httpMock 单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
+ Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
+过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Golang单元测试实战：httpMock" />
+<meta property="og:description" content="Golang单元测试实战：httpMock 单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
+ Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
+过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/posts/httpmock/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-07-16T17:48:07+08:00" />
+<meta property="article:modified_time" content="2021-07-16T17:48:07+08:00" />
+
+<meta itemprop="name" content="Golang单元测试实战：httpMock">
+<meta itemprop="description" content="Golang单元测试实战：httpMock 单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
+ Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
+过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !"><meta itemprop="datePublished" content="2021-07-16T17:48:07+08:00" />
+<meta itemprop="dateModified" content="2021-07-16T17:48:07+08:00" />
+<meta itemprop="wordCount" content="804">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Golang单元测试实战：httpMock"/>
+<meta name="twitter:description" content="Golang单元测试实战：httpMock 单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
+ Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
+过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/posts/httpmock/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/posts/httpmock/&amp;text=Golang%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e5%ae%9e%e6%88%98%ef%bc%9ahttpMock" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/posts/httpmock/&amp;title=Golang%e5%8d%95%e5%85%83%e6%b5%8b%e8%af%95%e5%ae%9e%e6%88%98%ef%bc%9ahttpMock" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Golang单元测试实战：httpMock</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-07-16T17:48:07+08:00">July 16, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="golang单元测试实战httpmock">Golang单元测试实战：httpMock</h1>
+<h2 id="单元测试定义">单元测试定义</h2>
+<p>之前看过一篇文章，里面讲到单元测试的2个原则：</p>
+<ul>
+<li>Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested</li>
+<li>The only way they can fail is by changing the unit of code they are testing</li>
+</ul>
+<p>记录一下最近对自己的代码进行单元测试实践</p>
+<h2 id="过程">过程</h2>
+<h3 id="被测代码">被测代码</h3>
+<pre><code>package http_request_demo
+
+import (
+	&quot;errors&quot;
+	&quot;io/ioutil&quot;
+	&quot;net/http&quot;
+)
+
+func getAPIResponse(url string) (string, error) {
+	var err error
+	request, err := http.NewRequest(&quot;GET&quot;, url, nil)
+	if err != nil {
+		return &quot;&quot;, err
+	}
+	myClient := &amp;http.Client{}
+	response, err := myClient.Do(request)
+	if err != nil {
+		return &quot;&quot;, err
+	}
+	defer response.Body.Close()
+	if response.StatusCode != 200 {
+		return &quot;&quot;, errors.New(&quot;response not 200!&quot;)
+	}
+	bodyBytes, err := ioutil.ReadAll(response.Body)
+	if err != nil {
+		return &quot;&quot;, err
+	}
+	return string(bodyBytes), nil
+}
+</code></pre><p>这个简单的函数主要做了以下几件事：</p>
+<ol>
+<li>构造http request</li>
+<li>用http client发起请求</li>
+<li>对请求动作的error进行判空、response的状态码判断、然后从body中read数据</li>
+</ol>
+<h3 id="如何单元测试">如何单元测试</h3>
+<h4 id="真实发起请求并测试">真实发起请求并测试</h4>
+<p>拿到这个函数最开始就觉得很简单，直接拿万能的百度上手，梭哈完事</p>
+<pre><code>func TestGetAPIResponse(t *testing.T) {
+	var api string
+	var responseBody string
+	var err error
+
+	// first test
+	api = &quot;http://www.baidu.com&quot;
+	responseBody, err = getAPIResponse(api)
+	if err != nil {
+		t.Errorf(&quot;first test failed! err: %v&quot;, err)
+	}
+	if responseBody == &quot;&quot; {
+		t.Errorf(&quot;first test failed! Unexpect response!&quot;)
+	}
+}
+</code></pre><p>go test跑一下，完美</p>
+<pre><code>=== RUN   TestGetAPIResponse
+--- PASS: TestGetAPIResponse (0.10s)
+PASS
+coverage: 73.3% of statements
+ok      github.com/linhuaqing0928/golang-demo/http_mock_demo    0.319s
+</code></pre><h4 id="问题">问题</h4>
+<p>但是这时候覆盖率之后73.3% 再往上提升就麻烦了，而且明显是不符合文章开头说的2个单元测试的原则</p>
+<ol>
+<li>如果www.baidu.com哪天挂了，我们这个UT就会fail 因为他还依赖了www.baidu.com这个第三方 而且这个第三方不是我们可以控制的。</li>
+<li>要提升覆盖率的话，我们需要构造http.NewRequest(&ldquo;GET&rdquo;, url, nil)返回error、response.StatusCode != 200等场景，而因为我们无法控制www.baidu.com的返回，所以覆盖率基本就提升不上去了。</li>
+</ol>
+<p>怎么解决这个问题呢，很容易想到几个mock方案：</p>
+<ol>
+<li>找一台服务器，上面搭建一个自己的服务 然后自己定制化的根据接收到的request内容，返回自定义的内容。  &ndash; 这个方案确实一定程度解决了这个问题，但是存在2个问题：</li>
+</ol>
+<ul>
+<li>成本太高，需要维护一个新的服务</li>
+<li>跑UT的机器必须和这台服务器网络是通的。</li>
+</ul>
+<ol start="2">
+<li>从根本上解决问题，不再发起网络请求。在client发起request请求的时候，直接拦截然后进行response返回的模拟。 &ndash; 本文的主角httpmock出现了</li>
+</ol>
+<h4 id="httpmock">httpmock</h4>
+<p>直接贴github地址：https://github.com/jarcoal/httpmock<br>
+readme讲解的很清楚了，使用方法基本就是以下几步：</p>
+<ol>
+<li>调用Activate方法启动httpmock环境</li>
+<li>通过httpmock.RegisterResponder方法进行mock规则注册。</li>
+<li>这时候再通过http client发起的请求就都会被httpmock拦截，如果匹配到刚刚注册的规则就会按照注册的内容返回对应response。  &mdash; 这里感觉httpmock有一点不太好用，那就是如果请求没有命中规则就会错误返回，而不是走真实请求。需要把整个过程涉及到的所有请求都注册上去。</li>
+<li>在defer里面调用DeactivateAndReset结束mock</li>
+</ol>
+<pre><code>func TestFetchArticles(t *testing.T) {
+  httpmock.Activate()
+  defer httpmock.DeactivateAndReset()
+
+  // Exact URL match
+  httpmock.RegisterResponder(&quot;GET&quot;, &quot;https://api.mybiz.com/articles&quot;,
+    httpmock.NewStringResponder(200, `[{&quot;id&quot;: 1, &quot;name&quot;: &quot;My Great Article&quot;}]`))
+
+  // Regexp match (could use httpmock.RegisterRegexpResponder instead)
+  httpmock.RegisterResponder(&quot;GET&quot;, `=~^https://api\.mybiz\.com/articles/id/\d+\z`,
+    httpmock.NewStringResponder(200, `{&quot;id&quot;: 1, &quot;name&quot;: &quot;My Great Article&quot;}`))
+
+  // do stuff that makes a request to articles
+  ...
+
+  // get count info
+  httpmock.GetTotalCallCount()
+
+  // get the amount of calls for the registered responder
+  info := httpmock.GetCallCountInfo()
+  info[&quot;GET https://api.mybiz.com/articles&quot;] // number of GET calls made to https://api.mybiz.com/articles
+  info[&quot;GET https://api.mybiz.com/articles/id/12&quot;] // number of GET calls made to https://api.mybiz.com/articles/id/12
+  info[`GET =~^https://api\.mybiz\.com/articles/id/\d+\z`] // number of GET calls made to https://api.mybiz.com/articles/id/&lt;any-number&gt;
+}
+</code></pre><h4 id="实战">实战</h4>
+<p>在自己的单元测试里面使用httpmock</p>
+<pre><code>func TestGetAPIResponse(t *testing.T) {
+	var api string
+	var responseBody string
+	var err error
+
+	// url nil test
+	api = &quot;://新&quot;
+	responseBody, err = getAPIResponse(api)
+	if err == nil {
+		t.Errorf(&quot;url nil test failed! err: %v&quot;, err)
+	}
+	if responseBody != &quot;&quot; {
+		t.Errorf(&quot;url nil test failed! Unexpect response!&quot;)
+	}
+
+	// http mock test
+	var mockResponse string
+	api = &quot;http://www.baidu.com&quot;
+	mockResponse = &quot;mock response body&quot;
+	httpmock.Activate()
+	defer httpmock.DeactivateAndReset()
+	httpmock.RegisterResponder(&quot;GET&quot;, api, httpmock.NewStringResponder(200, string(mockResponse)))
+	responseBody, err = getAPIResponse(api)
+	if err != nil {
+		t.Errorf(&quot;second test failed! err: %v&quot;, err)
+	}
+	if responseBody != mockResponse {
+		t.Errorf(&quot;second test failed! Unexpect response!&quot;)
+	}
+
+	// request fail test
+	api = &quot;http://www.baidu.com/fail&quot;
+	httpmock.RegisterResponder(&quot;GET&quot;, api,
+		func(r *http.Request) (*http.Response, error) {
+			return &amp;http.Response{
+				Status:        strconv.Itoa(200),
+				StatusCode:    200,
+				ContentLength: -1,
+			}, errors.New(&quot;fail error!&quot;)
+		})
+	responseBody, err = getAPIResponse(api)
+	if err == nil {
+		t.Errorf(&quot;request fail test failed! err: %v&quot;, err)
+	}
+	if responseBody != &quot;&quot; {
+		t.Errorf(&quot;request fail test failed! Unexpect response! response: %s&quot;, responseBody)
+	}
+
+	// wrong status test
+	api = &quot;http://www.baidu.com/wrongstatus&quot;
+	mockResponseWrong := &quot;mock response body&quot;
+	httpmock.RegisterResponder(&quot;GET&quot;, api, httpmock.NewStringResponder(404, string(mockResponseWrong)))
+	responseBody, err = getAPIResponse(api)
+	if err == nil {
+		t.Errorf(&quot;wrong request test failed! err: %v&quot;, err)
+	}
+	if responseBody != &quot;&quot; {
+		t.Errorf(&quot;wrong request test failed! Unexpect response! response: %s&quot;, responseBody)
+	}
+}
+// === RUN   TestGetAPIResponse
+// 2021/07/16 16:14:53 RoundTripper returned a response &amp; error; ignoring response
+// --- PASS: TestGetAPIResponse (0.00s)
+// PASS
+// coverage: 93.3% of statements
+// ok      github.com/linhuaqing0928/golang-demo/http_mock_demo    0.458s
+</code></pre><p>可以看到因为可以定制化返回结果，所以我们的覆盖率能够达到93.3% 同时最重要的是，我们达到了开头说的单元测试的2个原则。</p>
+<h3 id="httpmock原理解析">httpmock原理解析</h3>
+<ol>
+<li>Activate函数中通过http.DefaultTransport = DefaultTransport修改了所有通过http/net包发送的请求的transport</li>
+<li>DefaultTransport通过调用NewMockTransport方法实例化了一个MockTransport来代替DefaultTransport。这个MockTransport实现了http包中的RoundTripper接口。<a href="DefaultTransport">transport源码</a></li>
+<li>再来看一下MockTransport的结构体和RegisterResponder注册函数：</li>
+</ol>
+<pre><code>type MockTransport struct {
+	mu               sync.RWMutex
+	responders       map[internal.RouteKey]Responder
+	regexpResponders []regexpResponder
+	noResponder      Responder
+	callCountInfo    map[internal.RouteKey]int
+	totalCallCount   int
+}
+
+func (m *MockTransport) RegisterResponder(method, url string, responder Responder) {
+	if isRegexpURL(url) {
+		m.registerRegexpResponder(regexpResponder{
+			origRx:    url,
+			method:    method,
+			rx:        regexp.MustCompile(url[2:]),
+			responder: responder,
+		})
+		return
+	}
+
+	key := internal.RouteKey{
+		Method: method,
+		URL:    url,
+	}
+
+	m.mu.Lock()
+	m.responders[key] = responder
+	m.callCountInfo[key] = 0
+	m.mu.Unlock()
+}
+</code></pre><p>可以看到其实就是在MockTransport中维护一组map</p>
+<ul>
+<li>key是正则匹配的路由</li>
+<li>value是则是type Responder func(*http.Request) (*http.Response, error)</li>
+</ul>
+<ol start="4">
+<li>然后RegisterResponder的时候就是往这个map里面塞内容</li>
+</ol>
+<h2 id="最后">最后</h2>
+<p>以上就是对http的使用和源码简单解读，大家可以看到就算引入了httpmock，最后的代码覆盖率还是达不到100%  因为bodyBytes, err := ioutil.ReadAll(response.Body)这个部分我们构造不了err的场景。</p>
+<p>读一下http的response源码：</p>
+<pre><code>    // Body represents the response body.
+	//
+	// The response body is streamed on demand as the Body field
+	// is read. If the network connection fails or the server
+	// terminates the response, Body.Read calls return an error.
+	//
+	// The http Client and Transport guarantee that Body is always
+	// non-nil, even on responses without a body or responses with
+	// a zero-length body. It is the caller's responsibility to
+	// close Body. The default HTTP client's Transport may not
+	// reuse HTTP/1.x &quot;keep-alive&quot; TCP connections if the Body is
+	// not read to completion and closed.
+	//
+	// The Body is automatically dechunked if the server replied
+	// with a &quot;chunked&quot; Transfer-Encoding.
+	//
+	// As of Go 1.12, the Body will also implement io.Writer
+	// on a successful &quot;101 Switching Protocols&quot; response,
+	// as used by WebSockets and HTTP/2's &quot;h2c&quot; mode.
+	Body io.ReadCloser
+</code></pre><p>就会发现这个报错的出现场景：If the network connection fails or the server terminates the response, Body.Read calls return an error。 这个就不在我们单元测试能覆盖的范围内了，所以这个覆盖率无法满足就是合理的。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
