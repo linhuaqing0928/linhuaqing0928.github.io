@@ -6,7 +6,17 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 16 Jul 2021 17:48:07 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 18 Jul 2021 15:48:06 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS7</title>
+      <link>http://linhuaqing0928.github.io/post/arts7/</link>
+      <pubDate>Sun, 18 Jul 2021 15:48:06 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts7/</guid>
+      <description>Algorithm 剑指 Offer 06. 从尾到头打印链表 简单的反转单向链表，之前面试字节的时候遇到过，结果当时没做出来。。 这里比官方解法少一点时间复杂度。
+package reverse_print // Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } func reversePrint(head *ListNode) []int { if head == nil { return nil } var next *ListNode var prev *ListNode for true { if head.Next != nil { next = head.Next head.Next = prev prev = head head = next continue } head.Next = prev break } var result []int for true { result = append(result, head.</description>
+    </item>
+    
     <item>
       <title>Golang单元测试实战：httpMock</title>
       <link>http://linhuaqing0928.github.io/post/httpmock/</link>

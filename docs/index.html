@@ -128,6 +128,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts7/" class="color-inherit dim link">
+            ARTS7
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 06. 从尾到头打印链表 简单的反转单向链表，之前面试字节的时候遇到过，结果当时没做出来。。 这里比官方解法少一点时间复杂度。
+package reverse_print // Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } func reversePrint(head *ListNode) []int { if head == nil { return nil } var next *ListNode var prev *ListNode for true { if head.Next != nil { next = head.Next head.Next = prev prev = head head = next continue } head.Next = prev break } var result []int for true { result = append(result, head.
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts7/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/httpmock/" class="color-inherit dim link">
             Golang单元测试实战：httpMock
             </a>
@@ -172,38 +197,18 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts5/" class="color-inherit dim link">
-            ARTS #5
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 09. 用两个栈实现队列
-看了官方解答之后才做出来的。栈A存push的内容，栈B存remove的内容。栈B空的时候，把栈A的内容一一remove出来，然后再一一push到栈B里面。
-type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { return CQueue{ list.New(), list.New(), } } func (this *CQueue) AppendTail(value int) { this.stack1.PushBack(value) } func (this *CQueue) DeleteHead() int { if this.stack2.Len() &gt; 0 { back := this.stack2.Back() element := this.stack2.Remove(back) return element.(int) } index := 0 for index &lt; this.stack1.Len() { back := this.stack1.Back() element := this.stack1.Remove(back) this.stack2.PushBack(element) } if this.stack2.Len() == 0 { return -1 } back := this.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts5/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts5/" class="link black dim">
+              ARTS #5
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts4/" class="link black dim">
@@ -220,12 +225,6 @@ type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { ret
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts2/" class="link black dim">
               ARTS #2
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts1/" class="link black dim">
-              ARTS #1
             </a>
           </h2>
         
