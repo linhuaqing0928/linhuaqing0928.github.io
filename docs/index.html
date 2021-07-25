@@ -128,6 +128,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts8/" class="color-inherit dim link">
+            ARTS8
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 07. 重建二叉树 这道题没有做出来，看了官方解答之后用Golang写一遍 递归法：
+type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func buildTree(preorder []int, inorder []int) *TreeNode { // 遍历中序数组并将数据放到map中，方便后续读取数据 index := 0 treeMap := make(map[int]int) for ; index &lt; len(inorder); index++ { treeMap[inorder[index]] = index } head := buildTreeWithIndex(0, len(preorder)-1, 0, len(preorder)-1, preorder, inorder, treeMap) return head } func buildTreeWithIndex(preorderLeft, preorderRight, inorderLeft, inorderRight int, preorder []int, inorder []int, treeMap map[int]int) *TreeNode { if preorderLeft &gt; preorderRight { return nil } preorderRoot := preorderLeft inorderRoot := treeMap[preorder[preorderRoot]] inorderLeftSize := inorderRoot - inorderLeft head := &amp;TreeNode{preorder[preorderRoot], nil, nil} head.
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts8/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts7/" class="color-inherit dim link">
             ARTS7
             </a>
@@ -171,38 +196,18 @@ package reverse_print // Definition for singly-linked list. type ListNode struct
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts6/" class="color-inherit dim link">
-            ARTS6
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 03. 数组中重复的数字 最容易想到的解法就是map不重复算法
-// map不可重复解法 func findRepeatNumber(nums []int) int { unrepeat_map := make(map[int]int) for _, num := range nums { if _, ok := unrepeat_map[num]; ok { return num } else { unrepeat_map[num] = 1 } } return -1 } 看评论区有一个原地交换算法，很精妙。充分利用了长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内这一条件，实现如下：
-// 原地交换算法 func findRepeatNumber1(nums []int) int { index := 0 for index &lt; len(nums) { if index == nums[index] { index++ continue } if nums[nums[index]] == nums[index] { return nums[index] } temp := nums[nums[index]] nums[nums[index]] = nums[index] nums[index] = temp } return -1 } Review The Wide World of Software Testing 文章从上到下介绍了测试金字塔的几个阶段，都是一些概念。很赞同里面对单元测试的几个定义：
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts6/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts6/" class="link black dim">
+              ARTS6
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts5/" class="link black dim">
@@ -219,12 +224,6 @@ package reverse_print // Definition for singly-linked list. type ListNode struct
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts3/" class="link black dim">
               ARTS #3
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts2/" class="link black dim">
-              ARTS #2
             </a>
           </h2>
         

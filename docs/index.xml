@@ -6,7 +6,17 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 18 Jul 2021 15:48:06 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Jul 2021 22:23:16 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS8</title>
+      <link>http://linhuaqing0928.github.io/post/arts8/</link>
+      <pubDate>Sun, 25 Jul 2021 22:23:16 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts8/</guid>
+      <description>Algorithm 剑指 Offer 07. 重建二叉树 这道题没有做出来，看了官方解答之后用Golang写一遍 递归法：
+type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func buildTree(preorder []int, inorder []int) *TreeNode { // 遍历中序数组并将数据放到map中，方便后续读取数据 index := 0 treeMap := make(map[int]int) for ; index &amp;lt; len(inorder); index++ { treeMap[inorder[index]] = index } head := buildTreeWithIndex(0, len(preorder)-1, 0, len(preorder)-1, preorder, inorder, treeMap) return head } func buildTreeWithIndex(preorderLeft, preorderRight, inorderLeft, inorderRight int, preorder []int, inorder []int, treeMap map[int]int) *TreeNode { if preorderLeft &amp;gt; preorderRight { return nil } preorderRoot := preorderLeft inorderRoot := treeMap[preorder[preorderRoot]] inorderLeftSize := inorderRoot - inorderLeft head := &amp;amp;TreeNode{preorder[preorderRoot], nil, nil} head.</description>
+    </item>
+    
     <item>
       <title>ARTS7</title>
       <link>http://linhuaqing0928.github.io/post/arts7/</link>
