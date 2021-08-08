@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ARTS10 | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
+import &quot;container/list&quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;&amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root.">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ARTS10" />
+<meta property="og:description" content="Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
+import &quot;container/list&quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;&amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/arts10/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-08T22:49:27+08:00" />
+<meta property="article:modified_time" content="2021-08-08T22:49:27+08:00" />
+
+<meta itemprop="name" content="ARTS10">
+<meta itemprop="description" content="Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
+import &quot;container/list&quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;&amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root."><meta itemprop="datePublished" content="2021-08-08T22:49:27+08:00" />
+<meta itemprop="dateModified" content="2021-08-08T22:49:27+08:00" />
+<meta itemprop="wordCount" content="588">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS10"/>
+<meta name="twitter:description" content="Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
+import &quot;container/list&quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;&amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/post/arts10/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/post/arts10/&amp;text=ARTS10" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/post/arts10/&amp;title=ARTS10" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ARTS10</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-08-08T22:49:27+08:00">August 8, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="algorithm">Algorithm</h2>
+<h4 id="剑指-offer-27-二叉树的镜像httpsleetcode-cncomproblemser-cha-shu-de-jing-xiang-lcof"><a href="https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/">剑指 Offer 27. 二叉树的镜像</a></h4>
+<p>比较简单的二叉树题目，分别使用递归和栈实现了下</p>
+<pre><code>import &quot;container/list&quot;
+
+//   Definition for a binary tree node.
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+// 递归算法
+func mirrorTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	if root.Left == nil &amp;&amp; root.Right == nil {
+		return root
+	}
+	temp := root.Left
+	root.Left = root.Right
+	root.Right = temp
+	if root.Right != nil {
+		mirrorTree(root.Right)
+	}
+	if root.Left != nil {
+		mirrorTree(root.Left)
+	}
+	return root
+}
+
+// 使用栈解法
+func mirrorTree1(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	if root.Left == nil &amp;&amp; root.Right == nil {
+		return root
+	}
+	list := list.New()
+	list.PushBack(root)
+	for list.Len() != 0 {
+		first := list.Back()
+		firstEle := list.Remove(first).(*TreeNode)
+		if firstEle.Left != nil || firstEle.Right != nil {
+			temp := firstEle.Left
+			firstEle.Left = firstEle.Right
+			firstEle.Right = temp
+		}
+		if firstEle.Left != nil {
+			list.PushBack(firstEle.Left)
+		}
+		if firstEle.Right != nil {
+			list.PushBack(firstEle.Right)
+		}
+	}
+	return root
+}
+</code></pre><h2 id="review">Review</h2>
+<p><a href="https://daryl-ng.medium.com/why-you-need-to-avoid-using-append-in-go-8c8502b5d0da">Why you need to avoid using append in Go</a>
+文章对比了Golang中对slice进行add的几种操作的性能</p>
+<ol>
+<li>申明一个空切片，然后使用append进行添加元素操作。</li>
+<li>使用make初始化一个固定长度的切片，然后通过下标进行元素添加。</li>
+<li>使用make初始化一个固定长度的切片，然后使用append进行元素添加。</li>
+</ol>
+<p>最终对比下来，方案2/3的性能是相近的，而方案1的性能特别差。说明主要时间是花在切片扩容上。Golang切片的具体扩容代码可以看<a href="https://github.com/golang/go/blob/master/src/runtime/slice.go">slice.go</a>的growslice方法，因为Golang做了比较多的性能优化，所以相对比较复杂。
+代码：</p>
+<pre><code>func WithAppend() []string {
+   var l []string
+   for i := 0; i &lt; 100; i++ {
+      l = append(l, &quot;x&quot;)
+   }
+
+   return l
+}
+func WithAssignAlloc() []string {
+   l := make([]string, 100)
+   for i := 0; i &lt; 100; i++ {
+      l[i] = &quot;x&quot;
+   }
+
+   return l
+}
+func WithAppendAlloc() []string {
+   l := make([]string, 0, 100)
+   for i := 0; i &lt; 100; i++ {
+      l = append(l, &quot;x&quot;)
+   }
+   return l
+}
+BenchmarkWithAppend
+BenchmarkWithAppend-8           863949       1322 ns/op     4080 B/op        8 allocs/op
+BenchmarkWithAppendAlloc
+BenchmarkWithAppendAlloc-8     2543119        514 ns/op     1792 B/op        1 allocs/op
+BenchmarkWithAssignAlloc
+BenchmarkWithAssignAlloc-8     2343424        523 ns/op     1792 B/op        1 allocs/op
+</code></pre><h2 id="tip">Tip</h2>
+<p>这周学习了日志服务的基础架构，核心点：</p>
+<ol>
+<li>在每一台服务器上都有日志agent，业务代码产生日志后，会批量发送到日志服务器。</li>
+<li>全量日志内落hdfs</li>
+<li>错误日志落es，索引是一些固定的信息：IP、实例名、服务名、日志代码行数等。方便后续错误日志的快速查询。</li>
+</ol>
+<h2 id="share">Share</h2>
+<p>之前写过一篇关于<a href="https://www.jianshu.com/p/545963b593de">httpMock</a>的单元测试实践文章，里面提到HttpMock的原理是：Activate函数中通过http.DefaultTransport = DefaultTransport修改了所有通过http/net包发送的请求的transport。所以本周学习了一下Golang的net/http包的<a href="https://github.com/golang/go/blob/master/src/net/http/client.go">client.go源码</a>，了解一下一个httpClient是如何运作的。</p>
+<ol>
+<li>httpClient的结构体：</li>
+</ol>
+<pre><code>type Client struct {
+	// RoundTripper是一个接口，对外只提供一个RoundTrip方法（发送request请求）
+	Transport RoundTripper
+
+	// 是否重定向的方法判断，默认defaultCheckRedirect是重定向超过10次就停止，并报error
+	CheckRedirect func(req *Request, via []*Request) error
+
+	// cookie
+	Jar CookieJar
+
+	// 超时时间设置
+	Timeout time.Duration
+}
+</code></pre><ol start="2">
+<li>不管是post，还是get/head等方法，都是调用了httpClient的Do方法。例如Post：</li>
+</ol>
+<pre><code>func Post(url, contentType string, body io.Reader) (resp *Response, err error) {
+	return DefaultClient.Post(url, contentType, body)
+}
+func (c *Client) Post(url, contentType string, body io.Reader) (resp *Response, err error) {
+	req, err := NewRequest(&quot;POST&quot;, url, body)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set(&quot;Content-Type&quot;, contentType)
+	return c.Do(req)
+}
+</code></pre><ol start="3">
+<li>来看一下Do方法做了啥，Do代码比较多，这里就不贴了。</li>
+</ol>
+<ul>
+<li>把重定向的request都append到一个[]*Request切片中。</li>
+<li>通过调用c.send，最终调用到httpClient结构体中的Transport的RoundTrip方法，进行request发送。</li>
+<li>拿到RoundTrip的返回值：resp, didTimeout, err。如果报错或者超时，则终止此次Do请求。如果否，继续下一步</li>
+<li>调用redirectBehavior方法，判断是否是否需要进行重定向。如果需要的话，则再次进入for循环。</li>
+</ul>
+<ol start="4">
+<li>redirectBehavior做了啥：主要就是根据上一次request发送得到的response的StatusCode判断是否需要重定向。代码如下：</li>
+</ol>
+<pre><code>func redirectBehavior(reqMethod string, resp *Response, ireq *Request) (redirectMethod string, shouldRedirect, includeBody bool) {
+	switch resp.StatusCode {
+	case 301, 302, 303:
+		redirectMethod = reqMethod
+		shouldRedirect = true
+		includeBody = false
+
+		// RFC 2616 allowed automatic redirection only with GET and
+		// HEAD requests. RFC 7231 lifts this restriction, but we still
+		// restrict other methods to GET to maintain compatibility.
+		// See Issue 18570.
+		if reqMethod != &quot;GET&quot; &amp;&amp; reqMethod != &quot;HEAD&quot; {
+			redirectMethod = &quot;GET&quot;
+		}
+	case 307, 308:
+		redirectMethod = reqMethod
+		shouldRedirect = true
+		includeBody = true
+
+		// Treat 307 and 308 specially, since they're new in
+		// Go 1.8, and they also require re-sending the request body.
+		if resp.Header.Get(&quot;Location&quot;) == &quot;&quot; {
+			// 308s have been observed in the wild being served
+			// without Location headers. Since Go 1.7 and earlier
+			// didn't follow these codes, just stop here instead
+			// of returning an error.
+			// See Issue 17773.
+			shouldRedirect = false
+			break
+		}
+		if ireq.GetBody == nil &amp;&amp; ireq.outgoingLength() != 0 {
+			// We had a request body, and 307/308 require
+			// re-sending it, but GetBody is not defined. So just
+			// return this response to the user instead of an
+			// error, like we did in Go 1.7 and earlier.
+			shouldRedirect = false
+		}
+	}
+	return redirectMethod, shouldRedirect, includeBody
+}
+</code></pre><p>参考资料：
+<a href="https://juejin.cn/post/6844903922637733901">Go - http.Client源码分析</a></p>
+<p><a href="https://blog.csdn.net/skh2015java/article/details/89403057">Golang http之client源码详解</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

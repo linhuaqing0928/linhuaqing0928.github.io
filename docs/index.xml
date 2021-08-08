@@ -6,7 +6,17 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 01 Aug 2021 22:02:59 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Aug 2021 22:49:27 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS10</title>
+      <link>http://linhuaqing0928.github.io/post/arts10/</link>
+      <pubDate>Sun, 08 Aug 2021 22:49:27 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts10/</guid>
+      <description>Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
+import &amp;quot;container/list&amp;quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;amp;&amp;amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root.</description>
+    </item>
+    
     <item>
       <title>ARTS9</title>
       <link>http://linhuaqing0928.github.io/post/arts9/</link>
