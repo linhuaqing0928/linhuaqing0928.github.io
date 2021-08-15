@@ -6,7 +6,17 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 08 Aug 2021 22:49:27 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Aug 2021 01:36:24 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS11</title>
+      <link>http://linhuaqing0928.github.io/post/arts11/</link>
+      <pubDate>Mon, 16 Aug 2021 01:36:24 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts11/</guid>
+      <description>Algorithm 本周听同组同学新人串讲，提到了计算表达式相关知识点，所以上leetcode找出题目，复习写了下。
+224. 基本计算器 func calculate(s string) int { s = strings.ReplaceAll(s, &amp;quot; &amp;quot;, &amp;quot;&amp;quot;) var result int intStack := list.New() intStack.PushBack(0) oprateStack := list.New() start := 0 end := start + 1 for end &amp;lt;= len(s) { if s[start:end] == &amp;quot;(&amp;quot; { oprateStack.PushBack(&amp;quot;(&amp;quot;) start = end end = start + 1 continue } if s[start:end] == &amp;quot;-&amp;quot; || s[start:end] == &amp;quot;+&amp;quot; { if start &amp;gt; 0 &amp;amp;&amp;amp; (s[start-1:start] == &amp;quot;-&amp;quot; || s[start-1:start] == &amp;quot;+&amp;quot; || s[start-1:start] == &amp;quot;(&amp;quot;) { intStack.</description>
+    </item>
+    
     <item>
       <title>ARTS10</title>
       <link>http://linhuaqing0928.github.io/post/arts10/</link>

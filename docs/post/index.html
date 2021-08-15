@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        August 16, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts11/" class="link black dim">
+        ARTS11
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 本周听同组同学新人串讲，提到了计算表达式相关知识点，所以上leetcode找出题目，复习写了下。
+224. 基本计算器 func calculate(s string) int { s = strings.ReplaceAll(s, &quot; &quot;, &quot;&quot;) var result int intStack := list.New() intStack.PushBack(0) oprateStack := list.New() start := 0 end := start + 1 for end &lt;= len(s) { if s[start:end] == &quot;(&quot; { oprateStack.PushBack(&quot;(&quot;) start = end end = start + 1 continue } if s[start:end] == &quot;-&quot; || s[start:end] == &quot;+&quot; { if start &gt; 0 &amp;&amp; (s[start-1:start] == &quot;-&quot; || s[start-1:start] == &quot;+&quot; || s[start-1:start] == &quot;(&quot;) { intStack.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         August 8, 2021
       </div>
     
@@ -288,28 +309,6 @@ type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { ret
       Algorithm 剑指 Offer 10- I. 斐波那契数列 key：动态规划、python不用考虑int范围
 class Solution(object): def fib(self, n): &quot;&quot;&quot; :type n: int :rtype: int &quot;&quot;&quot; if n == 0: return 0 if n == 1: return 1 pre1 = 0 pre2 = 1 index = 2 while index &lt;= n: pre1 , pre2 = pre2, pre1 + pre2 index = index + 1 return pre2 % 1000000007 Review SOLID Go Design 这篇文章讲了solid原则在go上一些最佳实践的点，主要内容如下：
  单一原则： 在go程序要做到：每个 Go package 本身就是一个小的 Go 程序，一个单一的变更单元，具有单一的责任。从package的命名、实现的内容都要做到单一功能。  这里特意提到了unix的设计理念：small, sharp tools which combine to solve larger tasks, oftentimes tasks which were not envisioned by the original authors   开闭原则：也就是Software entities should be open for extension, but closed for modification。go本身不支持函数重载。很好的做到了being open for extension, are closed for modification 里式替换原则：go本身没有抽象类的概念，但是interface很好的支持了替换原则。 接口隔离原则：Clients should not be forced to depend on methods they do not use。 在go里面的最佳实践：A great rule of thumb for Go is accept interfaces, return structs.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 7, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts3/" class="link black dim">
-        ARTS #3
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 04. 二维数组中的查找 这道题是看了官方解法才解出来的，我个人的解题思路考虑了以下几个场景：
- 暴力解法，发现会超时 暴力接法的基础上想到了二分法提供性能，但是想到这个题目的侧重点应该不是二分法，所以就没有正式动手。 联想到数组是有序的，所以开始考虑从左上角出发进行寻找，但是左上角需要考虑回退和绕圈的场景，比较复杂一直没有做出来。 暴力递归解法：  class Solution(object): def findNumberIn2DArray(self, matrix, target): &quot;&quot;&quot; :type matrix: List[List[int]] :type target: int :rtype: bool &quot;&quot;&quot; for row in matrix: for column in row: if column==target: return True return False 线性查找：
-class Solution(object): def findNumberIn2DArray(self, matrix, target): &quot;&quot;&quot; :type matrix: List[List[int]] :type target: int :rtype: bool &quot;&quot;&quot; row_nums = len(matrix) if row_nums == 0: return False column_nums = len(matrix[0]) if column_nums ==0: return False current_column = column_nums-1 current_row = 0 while True: if current_column &lt; 0 or current_row &gt;= row_nums: return False current_value = matrix[current_row][current_column] if current_value == target: return True if current_value &lt; target: current_row += 1 continue if current_value &gt; target: current_column -= 1 continue Review FIT: Failure Injection Testing 文章介绍了netflix的FIT（故障注入测试），大概内容如下：
     </div>
   </div>
 
