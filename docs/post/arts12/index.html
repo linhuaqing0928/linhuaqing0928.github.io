@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ARTS12 | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index&#43;1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index&#43;1] { return numbers[index&#43;1] } index&#43;&#43; } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left &#43; (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid &#43; 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ARTS12" />
+<meta property="og:description" content="Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index&#43;1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index&#43;1] { return numbers[index&#43;1] } index&#43;&#43; } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left &#43; (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid &#43; 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/arts12/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-22T22:35:07+08:00" />
+<meta property="article:modified_time" content="2021-08-22T22:35:07+08:00" />
+
+<meta itemprop="name" content="ARTS12">
+<meta itemprop="description" content="Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index&#43;1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index&#43;1] { return numbers[index&#43;1] } index&#43;&#43; } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left &#43; (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid &#43; 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。"><meta itemprop="datePublished" content="2021-08-22T22:35:07+08:00" />
+<meta itemprop="dateModified" content="2021-08-22T22:35:07+08:00" />
+<meta itemprop="wordCount" content="254">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS12"/>
+<meta name="twitter:description" content="Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index&#43;1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index&#43;1] { return numbers[index&#43;1] } index&#43;&#43; } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left &#43; (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid &#43; 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/post/arts12/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/post/arts12/&amp;text=ARTS12" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/post/arts12/&amp;title=ARTS12" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ARTS12</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-08-22T22:35:07+08:00">August 22, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="algorithm">Algorithm</h2>
+<h4 id="剑指-offer-11-旋转数组的最小数字httpsleetcode-cncomproblemsxuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof"><a href="https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/">剑指 Offer 11. 旋转数组的最小数字</a></h4>
+<ol>
+<li>解法1：暴力破解法，从前往后遍历，如果index+1比index小就return</li>
+<li>解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：</li>
+</ol>
+<ul>
+<li>如果mid比right小，说明最小值不在右侧。</li>
+<li>如果mid比right大，说明最小值不在左侧。</li>
+<li>如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。</li>
+</ul>
+<pre><code>// 暴力遍历，时间复杂度O(n)
+func minArray1(numbers []int) int {
+	length := len(numbers)
+	index := 0
+	for index &lt; length-1 {
+		if numbers[index] &gt; numbers[index+1] {
+			return numbers[index+1]
+		}
+		index++
+	}
+	return numbers[0]
+}
+
+// 二分法，时间复杂度O(logn)
+// 关键在于
+func minArray(numbers []int) int {
+	left := 0
+	right := len(numbers) - 1
+	for left &lt; right {
+		mid := left + (right-left)/2
+		if numbers[mid] &lt; numbers[right] {
+			right = mid
+			continue
+		}
+		if numbers[mid] &gt; numbers[right] {
+			left = mid + 1
+			continue
+		}
+		if numbers[mid] == numbers[right] {
+			right--
+			continue
+		}
+	}
+	return numbers[left]
+}
+</code></pre><h2 id="review">Review</h2>
+<p><a href="https://krancour.medium.com/go-pointers-why-i-use-interfaces-in-go-338ae0bdc9e4">Go Pointers: Why I Use Interfaces (in Go)</a> 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。</p>
+<ol>
+<li>Golang中没有构造函数的说法，只有struct。</li>
+<li>为了实现类似其他语言中的构造函数，我们一般是新增一个类似的构造函数</li>
+</ol>
+<pre><code>type Widget struct {
+   id string
+}
+
+func NewWidget() Widget {
+   return Widget{
+       id: uuid.NewV4().String(),
+   }
+}
+
+func (w Widget) ID() string {
+   return w.id
+}
+</code></pre><ol start="3">
+<li>但是这时候因为struct本身是public（大写的），调用方还是可以直接new Widget{}的方式来绕过NewWidget方法。为了防止这个情况，我们通常会将struct设置为private（改为小写），来防止绕过</li>
+</ol>
+<pre><code>type widget struct {
+	id string
+}
+
+func NewWidget() widget {
+	return widget{
+		id: uuid.NewV4().String(),
+	}
+}
+
+func (w widget) ID() string {
+	return w.id
+}
+</code></pre><ol start="4">
+<li>这时候就出现一个问题了，因为widget是小写的，虽然编译器不会判定报错，但是godoc在生成文档的时候就不会生成widget相关的内容和注释。就导致你对外暴露了一个实例，但是文档中找不到任务关于这个实例对应结构体的信息和注释。这是很不推荐的。</li>
+<li>如果我们用interface来改造一下，就能避免这个问题。</li>
+</ol>
+<pre><code>// Widget is a ...
+type Widget interface {
+	// ID returns a widget's unique identifier
+	ID() string
+}
+
+type widget struct {
+	id string
+}
+
+// NewWidget() returns a new Widget
+func NewWidget() Widget {
+	return widget{
+		id: uuid.NewV4().String(),
+	}
+}
+
+func (w widget) ID() string {
+	return w.id
+}
+</code></pre><p>评论区有人贴出了Golang官方wiki的code review建议：<a href="https://github.com/golang/go/wiki/CodeReviewComments#interfaces">Interfaces</a>，我个人是比较赞同code review上的建议：<strong>不要在生产者（也就是具体struct类所在的包）里面定义interface，而是应该要在消费者所在的包定义interface</strong>。
+不过这2个文章本身说的不是一个事情，前者是通过interface在Golang中实现构造函数，后者则是对interface定义位置的建议。各取所需就可以。</p>
+<h2 id="tip">Tip</h2>
+<p>推荐一个Golang的配置文件读取开源库：<a href="github.com/spf13/viper">viper</a>，支持json、yaml、配置中心、buffer字节流等等配置读取，很好用。</p>
+<h2 id="share">Share</h2>
+<p><a href="https://mp.weixin.qq.com/s/bHXRSpiIhycoQLN5oz0QMA">Go 依赖注入：为什么把 dig 迁移到 wire</a></p>
+<p><a href="https://mp.weixin.qq.com/s/ZQKi9O7DRJ3qGWhDL9aTVg">一文读懂 Go官方的 Wire</a></p>
+<p>分享Golang官方依赖注入的工具wire，有如下好处：</p>
+<ol>
+<li>通过代码生成的方式实现依赖注入，如果有依赖缺失bug在编译期间就能发现问题。而如果使用的是dig框架这种运行时框架，就只能在运行时暴露问题。</li>
+<li>依赖关系在代码上生成后存在源码，方便静态分析等工具分析。</li>
+<li>节省人工手写依赖注入代码的时间。</li>
+</ol>
+<p>个人想法：</p>
+<ol>
+<li>Clear is better than clever ，Reflection is never clear。 大道至简，简单优雅的代码比花式炫技更需要功力。可以看到Golang官方的wire、go mock等都是基于这一点进行设计。</li>
+<li>依赖注入很重要，工作过程要时刻谨记。</li>
+<li>善用工具。</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

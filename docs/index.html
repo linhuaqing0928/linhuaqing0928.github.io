@@ -128,6 +128,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts12/" class="color-inherit dim link">
+            ARTS12
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index+1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index+1] { return numbers[index+1] } index++ } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left + (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid + 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts12/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts11/" class="color-inherit dim link">
             ARTS11
             </a>
@@ -170,37 +194,18 @@ import &quot;container/list&quot; // Definition for a binary tree node. type Tre
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts9/" class="color-inherit dim link">
-            ARTS9
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 25. 合并两个排序的链表 解法1：起一个新的链表。然后双指针遍历2个链表，不断地new新的ListNode，并添加到新的链表中。 解法2：三指针解法。将2个链表合并为一个结果链表。
- 指针A指向合并后的链表的当前位置。 另外2个指针B、C指向未合并前的2个链表的Next节点位置。当其中一个指针达到尾部之后，将指针A的Next指向另一个指针即可。  package merge_two_lists //Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode { if l1 == nil &amp;&amp; l2 == nil { return nil } if l1 == nil { return l2 } if l2 == nil { return l1 } var result, current *ListNode if l1.Val &lt;= l2.Val { current = l1 l1 = l1.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts9/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts9/" class="link black dim">
+              ARTS9
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/golang%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E4%BA%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E4%B8%8E%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E6%94%B9%E9%80%A0/" class="link black dim">
@@ -217,12 +222,6 @@ import &quot;container/list&quot; // Definition for a binary tree node. type Tre
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts7/" class="link black dim">
               ARTS7
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/golang%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E4%B8%80httpmock/" class="link black dim">
-              Golang单元测试实战：httpMock
             </a>
           </h2>
         

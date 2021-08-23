@@ -105,6 +105,26 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        August 22, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts12/" class="link black dim">
+        ARTS12
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index+1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index+1] { return numbers[index+1] } index++ } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left + (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid + 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         August 16, 2021
       </div>
     
@@ -287,28 +307,6 @@ package reverse_print // Definition for singly-linked list. type ListNode struct
       Algorithm 剑指 Offer 09. 用两个栈实现队列
 看了官方解答之后才做出来的。栈A存push的内容，栈B存remove的内容。栈B空的时候，把栈A的内容一一remove出来，然后再一一push到栈B里面。
 type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { return CQueue{ list.New(), list.New(), } } func (this *CQueue) AppendTail(value int) { this.stack1.PushBack(value) } func (this *CQueue) DeleteHead() int { if this.stack2.Len() &gt; 0 { back := this.stack2.Back() element := this.stack2.Remove(back) return element.(int) } index := 0 for index &lt; this.stack1.Len() { back := this.stack1.Back() element := this.stack1.Remove(back) this.stack2.PushBack(element) } if this.stack2.Len() == 0 { return -1 } back := this.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 7, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts4/" class="link black dim">
-        ARTS #4
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 10- I. 斐波那契数列 key：动态规划、python不用考虑int范围
-class Solution(object): def fib(self, n): &quot;&quot;&quot; :type n: int :rtype: int &quot;&quot;&quot; if n == 0: return 0 if n == 1: return 1 pre1 = 0 pre2 = 1 index = 2 while index &lt;= n: pre1 , pre2 = pre2, pre1 + pre2 index = index + 1 return pre2 % 1000000007 Review SOLID Go Design 这篇文章讲了solid原则在go上一些最佳实践的点，主要内容如下：
- 单一原则： 在go程序要做到：每个 Go package 本身就是一个小的 Go 程序，一个单一的变更单元，具有单一的责任。从package的命名、实现的内容都要做到单一功能。  这里特意提到了unix的设计理念：small, sharp tools which combine to solve larger tasks, oftentimes tasks which were not envisioned by the original authors   开闭原则：也就是Software entities should be open for extension, but closed for modification。go本身不支持函数重载。很好的做到了being open for extension, are closed for modification 里式替换原则：go本身没有抽象类的概念，但是interface很好的支持了替换原则。 接口隔离原则：Clients should not be forced to depend on methods they do not use。 在go里面的最佳实践：A great rule of thumb for Go is accept interfaces, return structs.
     </div>
   </div>
 

@@ -6,7 +6,16 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 16 Aug 2021 01:36:24 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 22 Aug 2021 22:35:07 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS12</title>
+      <link>http://linhuaqing0928.github.io/post/arts12/</link>
+      <pubDate>Sun, 22 Aug 2021 22:35:07 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts12/</guid>
+      <description>Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index+1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&amp;ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &amp;lt; length-1 { if numbers[index] &amp;gt; numbers[index+1] { return numbers[index+1] } index++ } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &amp;lt; right { mid := left + (right-left)/2 if numbers[mid] &amp;lt; numbers[right] { right = mid continue } if numbers[mid] &amp;gt; numbers[right] { left = mid + 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。</description>
+    </item>
+    
     <item>
       <title>ARTS11</title>
       <link>http://linhuaqing0928.github.io/post/arts11/</link>
