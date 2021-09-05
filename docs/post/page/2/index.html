@@ -109,6 +109,28 @@
       </div>
     
     <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts6/" class="link black dim">
+        ARTS6
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 03. 数组中重复的数字 最容易想到的解法就是map不重复算法
+// map不可重复解法 func findRepeatNumber(nums []int) int { unrepeat_map := make(map[int]int) for _, num := range nums { if _, ok := unrepeat_map[num]; ok { return num } else { unrepeat_map[num] = 1 } } return -1 } 看评论区有一个原地交换算法，很精妙。充分利用了长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内这一条件，实现如下：
+// 原地交换算法 func findRepeatNumber1(nums []int) int { index := 0 for index &lt; len(nums) { if index == nums[index] { index++ continue } if nums[nums[index]] == nums[index] { return nums[index] } temp := nums[nums[index]] nums[nums[index]] = nums[index] nums[index] = temp } return -1 } Review The Wide World of Software Testing 文章从上到下介绍了测试金字塔的几个阶段，都是一些概念。很赞同里面对单元测试的几个定义：
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        July 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
       <a href="http://linhuaqing0928.github.io/post/arts5/" class="link black dim">
         ARTS #5
       </a>

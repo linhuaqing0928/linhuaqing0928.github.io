@@ -6,7 +6,17 @@
     <description>Recent content in Posts on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 29 Aug 2021 16:13:34 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 05 Sep 2021 17:45:58 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS14</title>
+      <link>http://linhuaqing0928.github.io/post/arts14/</link>
+      <pubDate>Sun, 05 Sep 2021 17:45:58 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts14/</guid>
+      <description>Algorithm 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面 2个解法：
+ 头尾双指针   2个指针分别从头尾出发 判断头指针所在位置的值是奇数还是偶数 如果是奇数，则头指针++然后continue 如果是偶数，则交换头尾指针所在位置数组的数值。然后尾指针&amp;ndash;，continue。  快慢双指针   2个指针一起从头部出发 判断快指针所在位置的值是奇数还是偶数 如果是奇数，则交换快慢指针所在位置数组的数值，然后快慢指针都++，continue。 如果是偶数，则快指针++ 然后continue  // 首位双指针 func exchange1(nums []int) []int { start := 0 end := len(nums) - 1 for start &amp;lt; end { if nums[start]%2 == 1 { start++ continue } if nums[start]%2 == 0 { temp := nums[start] nums[start] = nums[end] nums[end] = temp end-- continue } } return nums } // 快慢双指针 func exchange(nums []int) []int { slow := 0 fast := 0 for fast &amp;lt; len(nums) { if nums[fast]%2 == 1 { temp := nums[fast] nums[fast] = nums[slow] nums[slow] = temp fast++ slow++ continue } if nums[fast]%2 == 0 { fast++ continue } } return nums } Review Provider Pattern in Go and Why You Should Use It 文章讲述了provider模式的好处：</description>
+    </item>
+    
     <item>
       <title>ARTS13</title>
       <link>http://linhuaqing0928.github.io/post/arts13/</link>

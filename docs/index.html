@@ -128,6 +128,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts14/" class="color-inherit dim link">
+            ARTS14
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面 2个解法：
+ 头尾双指针   2个指针分别从头尾出发 判断头指针所在位置的值是奇数还是偶数 如果是奇数，则头指针++然后continue 如果是偶数，则交换头尾指针所在位置数组的数值。然后尾指针&ndash;，continue。  快慢双指针   2个指针一起从头部出发 判断快指针所在位置的值是奇数还是偶数 如果是奇数，则交换快慢指针所在位置数组的数值，然后快慢指针都++，continue。 如果是偶数，则快指针++ 然后continue  // 首位双指针 func exchange1(nums []int) []int { start := 0 end := len(nums) - 1 for start &lt; end { if nums[start]%2 == 1 { start++ continue } if nums[start]%2 == 0 { temp := nums[start] nums[start] = nums[end] nums[end] = temp end-- continue } } return nums } // 快慢双指针 func exchange(nums []int) []int { slow := 0 fast := 0 for fast &lt; len(nums) { if nums[fast]%2 == 1 { temp := nums[fast] nums[fast] = nums[slow] nums[slow] = temp fast++ slow++ continue } if nums[fast]%2 == 0 { fast++ continue } } return nums } Review Provider Pattern in Go and Why You Should Use It 文章讲述了provider模式的好处：
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts14/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts13/" class="color-inherit dim link">
             ARTS13
             </a>
@@ -170,37 +195,18 @@ func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) re
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts11/" class="color-inherit dim link">
-            ARTS11
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 本周听同组同学新人串讲，提到了计算表达式相关知识点，所以上leetcode找出题目，复习写了下。
-224. 基本计算器 func calculate(s string) int { s = strings.ReplaceAll(s, &quot; &quot;, &quot;&quot;) var result int intStack := list.New() intStack.PushBack(0) oprateStack := list.New() start := 0 end := start + 1 for end &lt;= len(s) { if s[start:end] == &quot;(&quot; { oprateStack.PushBack(&quot;(&quot;) start = end end = start + 1 continue } if s[start:end] == &quot;-&quot; || s[start:end] == &quot;+&quot; { if start &gt; 0 &amp;&amp; (s[start-1:start] == &quot;-&quot; || s[start-1:start] == &quot;+&quot; || s[start-1:start] == &quot;(&quot;) { intStack.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts11/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts11/" class="link black dim">
+              ARTS11
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts10/" class="link black dim">
@@ -217,12 +223,6 @@ func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) re
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/golang%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E4%BA%8C%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E4%B8%8E%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E6%94%B9%E9%80%A0/" class="link black dim">
               Golang单元测试实战二：依赖注入与面向接口改造
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts8/" class="link black dim">
-              ARTS8
             </a>
           </h2>
         

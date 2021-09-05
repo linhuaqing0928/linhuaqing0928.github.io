@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        September 5, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts14/" class="link black dim">
+        ARTS14
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面 2个解法：
+ 头尾双指针   2个指针分别从头尾出发 判断头指针所在位置的值是奇数还是偶数 如果是奇数，则头指针++然后continue 如果是偶数，则交换头尾指针所在位置数组的数值。然后尾指针&ndash;，continue。  快慢双指针   2个指针一起从头部出发 判断快指针所在位置的值是奇数还是偶数 如果是奇数，则交换快慢指针所在位置数组的数值，然后快慢指针都++，continue。 如果是偶数，则快指针++ 然后continue  // 首位双指针 func exchange1(nums []int) []int { start := 0 end := len(nums) - 1 for start &lt; end { if nums[start]%2 == 1 { start++ continue } if nums[start]%2 == 0 { temp := nums[start] nums[start] = nums[end] nums[end] = temp end-- continue } } return nums } // 快慢双指针 func exchange(nums []int) []int { slow := 0 fast := 0 for fast &lt; len(nums) { if nums[fast]%2 == 1 { temp := nums[fast] nums[fast] = nums[slow] nums[slow] = temp fast++ slow++ continue } if nums[fast]%2 == 0 { fast++ continue } } return nums } Review Provider Pattern in Go and Why You Should Use It 文章讲述了provider模式的好处：
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         August 29, 2021
       </div>
     
@@ -285,28 +306,6 @@ package reverse_print // Definition for singly-linked list. type ListNode struct
       单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
  Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
 过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 7, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts6/" class="link black dim">
-        ARTS6
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 03. 数组中重复的数字 最容易想到的解法就是map不重复算法
-// map不可重复解法 func findRepeatNumber(nums []int) int { unrepeat_map := make(map[int]int) for _, num := range nums { if _, ok := unrepeat_map[num]; ok { return num } else { unrepeat_map[num] = 1 } } return -1 } 看评论区有一个原地交换算法，很精妙。充分利用了长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内这一条件，实现如下：
-// 原地交换算法 func findRepeatNumber1(nums []int) int { index := 0 for index &lt; len(nums) { if index == nums[index] { index++ continue } if nums[nums[index]] == nums[index] { return nums[index] } temp := nums[nums[index]] nums[nums[index]] = nums[index] nums[index] = temp } return -1 } Review The Wide World of Software Testing 文章从上到下介绍了测试金字塔的几个阶段，都是一些概念。很赞同里面对单元测试的几个定义：
     </div>
   </div>
 
