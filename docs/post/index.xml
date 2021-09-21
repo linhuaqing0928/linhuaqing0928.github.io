@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Sep 2021 08:33:09 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Sep 2021 22:46:04 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS16</title>
+      <link>http://linhuaqing0928.github.io/post/arts16/</link>
+      <pubDate>Tue, 21 Sep 2021 22:46:04 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts16/</guid>
+      <description>Algorithm 剑指 Offer 15. 二进制中1的个数  自己的解法：不断的除和求余 官方解法：与运算  func hammingWeight1(num uint32) int { count := 0 index := 31 for index &amp;gt;= 0 { multi := num / (uint32(math.Pow(2, float64(index)))) if multi == 1 { count++ } num = num % (uint32(math.Pow(2, float64(index)))) index-- } return count } func hammingWeight2(num uint32) int { count := 0 index := 0 for index &amp;lt; 32 { if 1&amp;lt;&amp;lt;index&amp;amp;num &amp;gt; 0 { count++ } index++ } return count } Review Golang: Six Error Handling techniques to help you write elegant code 文章比较细，介绍了作者个人比较推荐的几个error处理方式。感觉比较有用的2点：</description>
+    </item>
+    
     <item>
       <title>ARTS15</title>
       <link>http://linhuaqing0928.github.io/post/arts15/</link>

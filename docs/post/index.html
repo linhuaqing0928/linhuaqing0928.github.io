@@ -109,6 +109,26 @@
       </div>
     
     <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts16/" class="link black dim">
+        ARTS16
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 15. 二进制中1的个数  自己的解法：不断的除和求余 官方解法：与运算  func hammingWeight1(num uint32) int { count := 0 index := 31 for index &gt;= 0 { multi := num / (uint32(math.Pow(2, float64(index)))) if multi == 1 { count++ } num = num % (uint32(math.Pow(2, float64(index)))) index-- } return count } func hammingWeight2(num uint32) int { count := 0 index := 0 for index &lt; 32 { if 1&lt;&lt;index&amp;num &gt; 0 { count++ } index++ } return count } Review Golang: Six Error Handling techniques to help you write elegant code 文章比较细，介绍了作者个人比较推荐的几个error处理方式。感觉比较有用的2点：
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
+        September 21, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
       <a href="http://linhuaqing0928.github.io/post/arts15/" class="link black dim">
         ARTS15
       </a>
@@ -284,27 +304,6 @@ func (f FileSDK) NewFile() string { myClient := ThridPClient{} _, err := myClien
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Algorithm 剑指 Offer 07. 重建二叉树 这道题没有做出来，看了官方解答之后用Golang写一遍 递归法：
 type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func buildTree(preorder []int, inorder []int) *TreeNode { // 遍历中序数组并将数据放到map中，方便后续读取数据 index := 0 treeMap := make(map[int]int) for ; index &lt; len(inorder); index++ { treeMap[inorder[index]] = index } head := buildTreeWithIndex(0, len(preorder)-1, 0, len(preorder)-1, preorder, inorder, treeMap) return head } func buildTreeWithIndex(preorderLeft, preorderRight, inorderLeft, inorderRight int, preorder []int, inorder []int, treeMap map[int]int) *TreeNode { if preorderLeft &gt; preorderRight { return nil } preorderRoot := preorderLeft inorderRoot := treeMap[preorder[preorderRoot]] inorderLeftSize := inorderRoot - inorderLeft head := &amp;TreeNode{preorder[preorderRoot], nil, nil} head.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 18, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts7/" class="link black dim">
-        ARTS7
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 06. 从尾到头打印链表 简单的反转单向链表，之前面试字节的时候遇到过，结果当时没做出来。。 这里比官方解法少一点时间复杂度。
-package reverse_print // Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } func reversePrint(head *ListNode) []int { if head == nil { return nil } var next *ListNode var prev *ListNode for true { if head.Next != nil { next = head.Next head.Next = prev prev = head head = next continue } head.Next = prev break } var result []int for true { result = append(result, head.
     </div>
   </div>
 

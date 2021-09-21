@@ -128,6 +128,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts16/" class="color-inherit dim link">
+            ARTS16
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 15. 二进制中1的个数  自己的解法：不断的除和求余 官方解法：与运算  func hammingWeight1(num uint32) int { count := 0 index := 31 for index &gt;= 0 { multi := num / (uint32(math.Pow(2, float64(index)))) if multi == 1 { count++ } num = num % (uint32(math.Pow(2, float64(index)))) index-- } return count } func hammingWeight2(num uint32) int { count := 0 index := 0 for index &lt; 32 { if 1&lt;&lt;index&amp;num &gt; 0 { count++ } index++ } return count } Review Golang: Six Error Handling techniques to help you write elegant code 文章比较细，介绍了作者个人比较推荐的几个error处理方式。感觉比较有用的2点：
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts16/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts15/" class="color-inherit dim link">
             ARTS15
             </a>
@@ -170,38 +194,18 @@ func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) 
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts13/" class="color-inherit dim link">
-            ARTS13
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 10- II. 青蛙跳台阶问题 简单动态规划题目，注意边界值和取模即可
-func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) result[0] = 1 result[1] = 1 index := 2 for index &lt;= n { result[index] = result[index-1] + result[index-2] result[index] = result[index] % 1000000007 index++ } return result[n] } Review Go: Understand the Empty Interface 文章介绍了Golang的interface{}的底层实现：
- Golang的runtime源码中，有一个专门的emptyInterface的结构体来表示interface{}。其实就是2个指针：一个代表这个interface的内置type，另一个则是存具体数据内容的指针。前者里面存了内置type具体的size、kind等内容。  type emptyInterface struct { typ *rtype // word 1 with type description word unsafe.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts13/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts13/" class="link black dim">
+              ARTS13
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts12/" class="link black dim">
@@ -218,12 +222,6 @@ func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) re
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts10/" class="link black dim">
               ARTS10
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts9/" class="link black dim">
-              ARTS9
             </a>
           </h2>
         
