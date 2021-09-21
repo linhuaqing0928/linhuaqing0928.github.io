@@ -6,7 +6,17 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 05 Sep 2021 17:45:58 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Sep 2021 08:33:09 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS15</title>
+      <link>http://linhuaqing0928.github.io/post/arts15/</link>
+      <pubDate>Tue, 21 Sep 2021 08:33:09 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts15/</guid>
+      <description>Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
+func exist(board [][]byte, word string) bool { row := 0 for row &amp;lt; len(board) { column := 0 for column &amp;lt; len(board[0]) { if dfs(row, column, 0, &amp;amp;board, word) { return true } column++ } row++ } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &amp;lt;= i &amp;amp;&amp;amp; i &amp;lt; len(*board)) || !(0 &amp;lt;= j &amp;amp;&amp;amp; j &amp;lt; len((*board)[0])) || ((*board)[i][j] !</description>
+    </item>
+    
     <item>
       <title>ARTS14</title>
       <link>http://linhuaqing0928.github.io/post/arts14/</link>

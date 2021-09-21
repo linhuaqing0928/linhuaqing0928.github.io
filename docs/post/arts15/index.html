@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ARTS15 | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
+func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) { column := 0 for column &lt; len(board[0]) { if dfs(row, column, 0, &amp;board, word) { return true } column&#43;&#43; } row&#43;&#43; } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] !">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ARTS15" />
+<meta property="og:description" content="Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
+func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) { column := 0 for column &lt; len(board[0]) { if dfs(row, column, 0, &amp;board, word) { return true } column&#43;&#43; } row&#43;&#43; } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/arts15/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-09-21T08:33:09+08:00" />
+<meta property="article:modified_time" content="2021-09-21T08:33:09+08:00" />
+
+<meta itemprop="name" content="ARTS15">
+<meta itemprop="description" content="Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
+func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) { column := 0 for column &lt; len(board[0]) { if dfs(row, column, 0, &amp;board, word) { return true } column&#43;&#43; } row&#43;&#43; } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] !"><meta itemprop="datePublished" content="2021-09-21T08:33:09+08:00" />
+<meta itemprop="dateModified" content="2021-09-21T08:33:09+08:00" />
+<meta itemprop="wordCount" content="161">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS15"/>
+<meta name="twitter:description" content="Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
+func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) { column := 0 for column &lt; len(board[0]) { if dfs(row, column, 0, &amp;board, word) { return true } column&#43;&#43; } row&#43;&#43; } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] !"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/post/arts15/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/post/arts15/&amp;text=ARTS15" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/post/arts15/&amp;title=ARTS15" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ARTS15</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-09-21T08:33:09+08:00">September 21, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="algorithm">Algorithm</h2>
+<h4 id="剑指-offer-12-矩阵中的路径httpsleetcode-cncomproblemsju-zhen-zhong-de-lu-jing-lcof"><a href="https://leetcode-cn.com/problems/ju-zhen-zhong-de-lu-jing-lcof/">剑指 Offer 12. 矩阵中的路径</a></h4>
+<p>自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。
+贴一下Golang实现的官方解题：</p>
+<pre><code>func exist(board [][]byte, word string) bool {
+	row := 0
+	for row &lt; len(board) {
+		column := 0
+		for column &lt; len(board[0]) {
+			if dfs(row, column, 0, &amp;board, word) {
+				return true
+			}
+			column++
+		}
+		row++
+	}
+	return false
+}
+
+func dfs(i int, j int, k int, board *[][]byte, word string) bool {
+	if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] != word[k]) {
+		return false
+	}
+	if k == len(word)-1 {
+		return true
+	}
+	(*board)[i][j] = ' '
+	res := (dfs(i+1, j, k+1, board, word) || dfs(i-1, j, k+1, board, word) || dfs(i, j+1, k+1, board, word) || dfs(i, j-1, k+1, board, word))
+	(*board)[i][j] = word[k]
+	return res
+}
+</code></pre><h2 id="review">Review</h2>
+<p><a href="https://elliotchance.medium.com/a-new-simpler-way-to-do-dependency-injection-in-go-9e191bef50d5">A New, Simpler Way to Do Dependency Injection in Go</a>
+文章用一个例子介绍了DI的好处、provider模式的应用，最后介绍了一个开源框架dingo。dingo有点像spring，使用yaml进行依赖注入配置，然后生成provider。和官方<a href="https://github.com/google/wire">wire</a>思路一致，推荐使用wire。</p>
+<h2 id="tip">Tip</h2>
+<p>这周做双11大促压测保障的时候，第一次接触到了业务降级预案演练的概念。之前大促压测流程保障基本都是比较简单的：</p>
+<ol>
+<li>定制一个压测目标。</li>
+<li>然后进行压测。</li>
+<li>达到目标之后，在入口处设置限流，超过限流值的请求都不再能够访问服务。从而防止超过性能上限的流量打入服务导致雪崩。</li>
+</ol>
+<p>这种解决方案其实是比较简单粗暴的，产品业务同学需要做的只是：</p>
+<ol>
+<li>确定业务最佳体验方案然后研发相对应的进行代码开发。</li>
+<li>性能达到瓶颈之后，一般都是进行服务器资源扩容或者研发同学进行代码性能优化。</li>
+</ol>
+<p>而服务降级则是另一个思路：
+产品业务同学在最佳体验方案之外，需要准备几个有损降级方案。这里的有损降级就是在请求qps达到某个阈值之后</p>
+<ol>
+<li>代码内部针对性的跳过一些非核心处理逻辑，只提供一些核心功能。例如原来可能要返回订单详情和相对应的推荐产品，降级之后只返回订单详情。</li>
+<li>或者减少返回内容丰富度。例如一个推荐系统，降级之前可能需要推荐10个信息，降级之后推荐4个信息。</li>
+<li>又或者直接返回某个default值，然后对应的业务处理放入异步队列中从而达到削峰的目的。</li>
+<li>等等等</li>
+</ol>
+<p>简单总结一下就是：降级需要从全局角度针对业务特性进行设计，然后通过提供可接受的有损服务来提高服务整体可承担的请求qps数。</p>
+<h2 id="share">Share</h2>
+<p><a href="https://mp.weixin.qq.com/s/s8xjm1ZCKIoTGT3DCVA4aw">深度剖析：Redis分布式锁到底安全吗？看完这篇文章彻底懂了！</a>
+很好的一篇文章，深入的分析了分布式锁的存在原因、普通的redis分布式锁的优缺点、针对优缺点又衍生出什么解决方案。</p>
+<ol>
+<li>死锁：设置过期时间</li>
+<li>过期时间评估不好，锁提前过期：守护线程，自动续期</li>
+<li>锁被别人释放：锁写入唯一标识，释放锁先检查标识，再释放</li>
+<li>redis集群模式下，主从切换场景的安全问题。介绍了redlock方案以及对应的争论。</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
