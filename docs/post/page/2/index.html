@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        July 25, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts8/" class="link black dim">
+        ARTS8
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 07. 重建二叉树 这道题没有做出来，看了官方解答之后用Golang写一遍 递归法：
+type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func buildTree(preorder []int, inorder []int) *TreeNode { // 遍历中序数组并将数据放到map中，方便后续读取数据 index := 0 treeMap := make(map[int]int) for ; index &lt; len(inorder); index++ { treeMap[inorder[index]] = index } head := buildTreeWithIndex(0, len(preorder)-1, 0, len(preorder)-1, preorder, inorder, treeMap) return head } func buildTreeWithIndex(preorderLeft, preorderRight, inorderLeft, inorderRight int, preorder []int, inorder []int, treeMap map[int]int) *TreeNode { if preorderLeft &gt; preorderRight { return nil } preorderRoot := preorderLeft inorderRoot := treeMap[preorder[preorderRoot]] inorderLeftSize := inorderRoot - inorderLeft head := &amp;TreeNode{preorder[preorderRoot], nil, nil} head.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         July 18, 2021
       </div>
     

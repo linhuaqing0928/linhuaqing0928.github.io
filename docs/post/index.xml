@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Tue, 21 Sep 2021 22:46:04 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Sep 2021 22:15:29 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS17</title>
+      <link>http://linhuaqing0928.github.io/post/arts17/</link>
+      <pubDate>Sun, 26 Sep 2021 22:15:29 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts17/</guid>
+      <description>Algorithm 剑指 Offer 29. 顺时针打印矩阵 func spiralOrder(matrix [][]int) []int { if len(matrix) == 0 { return nil } result := make([]int, 0, len(matrix)*len(matrix[0])) xMin := 0 yMin := 1 // 这里需要注意，Y轴刚起步就占用了一个，所以初始为1 yMax := len(matrix) xMax := len(matrix[0]) x := 0 // 代表X轴 y := 0 // 代表Y轴 flag := true // true代表横着走，false代表竖着走 count := 1 // 1代表正向走，-1达标逆向走 for { if flag { if x &amp;lt; xMin || x &amp;gt;= xMax { break } } else { if y &amp;lt; yMin || y &amp;gt;= yMax { break } } result = append(result, matrix[y][x]) // 专项判断 if flag { xTemp := x + count if xTemp &amp;gt;= xMax { flag = false count = 1 xMax-- } else if xTemp &amp;lt; xMin { flag = false count = -1 xMin++ } } else if !</description>
+    </item>
+    
     <item>
       <title>ARTS16</title>
       <link>http://linhuaqing0928.github.io/post/arts16/</link>
