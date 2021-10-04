@@ -6,7 +6,17 @@
     <description>Recent content in Posts on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 26 Sep 2021 22:15:29 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Oct 2021 23:24:55 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS18</title>
+      <link>http://linhuaqing0928.github.io/post/arts18/</link>
+      <pubDate>Mon, 04 Oct 2021 23:24:55 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts18/</guid>
+      <description>Algorithm 剑指 Offer 14- I. 剪绳子 2种解法：
+ 贪心法，从长度为2的绳子开始找规律 可以知道每次得到越多的3的时候 乘积越大。这个解法是自己解出来的。 动态规划，看其他人借题答案学到的。关键点动态规划点就是每次先剪去一段长度，然后剩下的有剪或者不剪2种方法，取max。转移方程为：dp[i] = max(dp[i], max(j * (i - j), j * dp[i - j]))  // 贪心算法 找规律，可以得到将内容划分为3的时候 得到的乘积为最大 func cuttingRope1(n int) int { var result int if n == 2 { return 1 } if n == 3 { return 2 } remind := n % 3 if remind == 0 { result = int(math.Pow(3, float64(n/3))) } if remind == 1 { result = int(math.</description>
+    </item>
+    
     <item>
       <title>ARTS17</title>
       <link>http://linhuaqing0928.github.io/post/arts17/</link>
