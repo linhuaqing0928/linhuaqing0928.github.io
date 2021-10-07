@@ -6,7 +6,17 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 04 Oct 2021 23:24:55 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 19:42:28 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS19</title>
+      <link>http://linhuaqing0928.github.io/post/arts19/</link>
+      <pubDate>Thu, 07 Oct 2021 19:42:28 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts19/</guid>
+      <description>Algorithm 剑指 Offer 14- II. 剪绳子 II 这道题比剪绳子|难在绳子长度范围可以达到1000，并且需要取模。如果是直接计算的话，就算是int64也会溢出，所以需要循环取模。
+func cuttingRope(n int) int { var result int if n == 2 { return 1 } if n == 3 { return 2 } remind := n % 3 if remind == 0 { // result = int(math.Pow(3, float64(n/3))) % 1000000007 result = getRemind(n/3) % 1000000007 } if remind == 1 { // result = int(math.Pow(3, float64(n/3)-1)) * 4 % 1000000007 result = getRemind(n/3-1) * 4 % 1000000007 } if remind == 2 { // result = int(math.</description>
+    </item>
+    
     <item>
       <title>ARTS18</title>
       <link>http://linhuaqing0928.github.io/post/arts18/</link>

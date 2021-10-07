@@ -128,6 +128,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts19/" class="color-inherit dim link">
+            ARTS19
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 14- II. 剪绳子 II 这道题比剪绳子|难在绳子长度范围可以达到1000，并且需要取模。如果是直接计算的话，就算是int64也会溢出，所以需要循环取模。
+func cuttingRope(n int) int { var result int if n == 2 { return 1 } if n == 3 { return 2 } remind := n % 3 if remind == 0 { // result = int(math.Pow(3, float64(n/3))) % 1000000007 result = getRemind(n/3) % 1000000007 } if remind == 1 { // result = int(math.Pow(3, float64(n/3)-1)) * 4 % 1000000007 result = getRemind(n/3-1) * 4 % 1000000007 } if remind == 2 { // result = int(math.
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts19/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts18/" class="color-inherit dim link">
             ARTS18
             </a>
@@ -169,36 +194,18 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts16/" class="color-inherit dim link">
-            ARTS16
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 15. 二进制中1的个数  自己的解法：不断的除和求余 官方解法：与运算  func hammingWeight1(num uint32) int { count := 0 index := 31 for index &gt;= 0 { multi := num / (uint32(math.Pow(2, float64(index)))) if multi == 1 { count++ } num = num % (uint32(math.Pow(2, float64(index)))) index-- } return count } func hammingWeight2(num uint32) int { count := 0 index := 0 for index &lt; 32 { if 1&lt;&lt;index&amp;num &gt; 0 { count++ } index++ } return count } Review Golang: Six Error Handling techniques to help you write elegant code 文章比较细，介绍了作者个人比较推荐的几个error处理方式。感觉比较有用的2点：
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts16/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts16/" class="link black dim">
+              ARTS16
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts15/" class="link black dim">
@@ -215,12 +222,6 @@
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts13/" class="link black dim">
               ARTS13
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts12/" class="link black dim">
-              ARTS12
             </a>
           </h2>
         
