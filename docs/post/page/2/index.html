@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        August 8, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts10/" class="link black dim">
+        ARTS10
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
+import &quot;container/list&quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;&amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         August 1, 2021
       </div>
     
@@ -289,27 +310,6 @@ class Solution(object): def fib(self, n): &quot;&quot;&quot; :type n: int :rtype
       Algorithm 剑指 Offer 04. 二维数组中的查找 这道题是看了官方解法才解出来的，我个人的解题思路考虑了以下几个场景：
  暴力解法，发现会超时 暴力接法的基础上想到了二分法提供性能，但是想到这个题目的侧重点应该不是二分法，所以就没有正式动手。 联想到数组是有序的，所以开始考虑从左上角出发进行寻找，但是左上角需要考虑回退和绕圈的场景，比较复杂一直没有做出来。 暴力递归解法：  class Solution(object): def findNumberIn2DArray(self, matrix, target): &quot;&quot;&quot; :type matrix: List[List[int]] :type target: int :rtype: bool &quot;&quot;&quot; for row in matrix: for column in row: if column==target: return True return False 线性查找：
 class Solution(object): def findNumberIn2DArray(self, matrix, target): &quot;&quot;&quot; :type matrix: List[List[int]] :type target: int :rtype: bool &quot;&quot;&quot; row_nums = len(matrix) if row_nums == 0: return False column_nums = len(matrix[0]) if column_nums ==0: return False current_column = column_nums-1 current_row = 0 while True: if current_column &lt; 0 or current_row &gt;= row_nums: return False current_value = matrix[current_row][current_column] if current_value == target: return True if current_value &lt; target: current_row += 1 continue if current_value &gt; target: current_column -= 1 continue Review FIT: Failure Injection Testing 文章介绍了netflix的FIT（故障注入测试），大概内容如下：
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 7, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts2/" class="link black dim">
-        ARTS #2
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 83. 删除排序链表中的重复元素 非常简单的单向链表遍历
-# Definition for singly-linked list. # class ListNode(object): # def __init__(self, val=0, next=None): # self.val = val # self.next = next class Solution(object): def deleteDuplicates(self, head): &quot;&quot;&quot; :type head: ListNode :rtype: ListNode &quot;&quot;&quot; if head is None: return head start = head current_node = head next_node = None while current_node.next: next_node = current_node.next if current_node.val != next_node.val: current_node = next_node if current_node.val == next_node.val: if next_node.next: current_node.
     </div>
   </div>
 

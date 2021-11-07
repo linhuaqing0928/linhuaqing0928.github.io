@@ -105,6 +105,26 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        November 7, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts20/" class="link black dim">
+        ARTS20
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 28. 对称的二叉树 // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func isSymmetric(root *TreeNode) bool { if root == nil { return true } return symmetric([]*TreeNode{root.Left, root.Right}) } func symmetric(roots []*TreeNode) bool { length := len(roots) index := 0 for index &lt; length/2 { temp1 := roots[index] temp2 := roots[length-1-index] if temp1 != nil &amp;&amp; temp2 != nil &amp;&amp; temp1.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         October 7, 2021
       </div>
     
@@ -282,27 +302,6 @@ func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) re
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Algorithm 本周听同组同学新人串讲，提到了计算表达式相关知识点，所以上leetcode找出题目，复习写了下。
 224. 基本计算器 func calculate(s string) int { s = strings.ReplaceAll(s, &quot; &quot;, &quot;&quot;) var result int intStack := list.New() intStack.PushBack(0) oprateStack := list.New() start := 0 end := start + 1 for end &lt;= len(s) { if s[start:end] == &quot;(&quot; { oprateStack.PushBack(&quot;(&quot;) start = end end = start + 1 continue } if s[start:end] == &quot;-&quot; || s[start:end] == &quot;+&quot; { if start &gt; 0 &amp;&amp; (s[start-1:start] == &quot;-&quot; || s[start-1:start] == &quot;+&quot; || s[start-1:start] == &quot;(&quot;) { intStack.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        August 8, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts10/" class="link black dim">
-        ARTS10
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 27. 二叉树的镜像 比较简单的二叉树题目，分别使用递归和栈实现了下
-import &quot;container/list&quot; // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } // 递归算法 func mirrorTree(root *TreeNode) *TreeNode { if root == nil { return nil } if root.Left == nil &amp;&amp; root.Right == nil { return root } temp := root.Left root.Left = root.Right root.Right = temp if root.Right != nil { mirrorTree(root.Right) } if root.
     </div>
   </div>
 

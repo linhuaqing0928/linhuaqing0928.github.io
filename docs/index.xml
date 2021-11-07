@@ -6,7 +6,16 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 07 Oct 2021 19:42:28 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Nov 2021 22:51:24 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS20</title>
+      <link>http://linhuaqing0928.github.io/post/arts20/</link>
+      <pubDate>Sun, 07 Nov 2021 22:51:24 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts20/</guid>
+      <description>Algorithm 剑指 Offer 28. 对称的二叉树 // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func isSymmetric(root *TreeNode) bool { if root == nil { return true } return symmetric([]*TreeNode{root.Left, root.Right}) } func symmetric(roots []*TreeNode) bool { length := len(roots) index := 0 for index &amp;lt; length/2 { temp1 := roots[index] temp2 := roots[length-1-index] if temp1 != nil &amp;amp;&amp;amp; temp2 != nil &amp;amp;&amp;amp; temp1.</description>
+    </item>
+    
     <item>
       <title>ARTS19</title>
       <link>http://linhuaqing0928.github.io/post/arts19/</link>
