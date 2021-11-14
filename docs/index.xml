@@ -6,7 +6,16 @@
     <description>Recent content on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 07 Nov 2021 22:51:24 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Nov 2021 23:02:34 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS21</title>
+      <link>http://linhuaqing0928.github.io/post/arts21/</link>
+      <pubDate>Sun, 14 Nov 2021 23:02:34 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts21/</guid>
+      <description>Algorithm 剑指 Offer 22. 链表中倒数第k个节点  最简单的方法，遍历链表 然后每个节点存储在map里面，最后按照key取出来倒数第K个节点 快慢指针方法 快指针比慢指针早出发K-1个节点 这样子当快指针达到尾节点的时候，慢指针就是我们期望的结果  // map存储法 func getKthFromEnd(head *ListNode, k int) *ListNode { if head == nil { return nil } nodes := make(map[int]*ListNode) count := 1 for { nodes[count] = head if head.Next != nil { head = head.Next count++ } else { break } } result := nodes[count-k+1] return result } // 快慢指针方法 func getKthFromEnd1(head *ListNode, k int) *ListNode { if head == nil { return nil } slow := head fast := head index := 1 for { if fast.</description>
+    </item>
+    
     <item>
       <title>ARTS20</title>
       <link>http://linhuaqing0928.github.io/post/arts20/</link>

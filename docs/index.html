@@ -128,6 +128,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts21/" class="color-inherit dim link">
+            ARTS21
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 22. 链表中倒数第k个节点  最简单的方法，遍历链表 然后每个节点存储在map里面，最后按照key取出来倒数第K个节点 快慢指针方法 快指针比慢指针早出发K-1个节点 这样子当快指针达到尾节点的时候，慢指针就是我们期望的结果  // map存储法 func getKthFromEnd(head *ListNode, k int) *ListNode { if head == nil { return nil } nodes := make(map[int]*ListNode) count := 1 for { nodes[count] = head if head.Next != nil { head = head.Next count++ } else { break } } result := nodes[count-k+1] return result } // 快慢指针方法 func getKthFromEnd1(head *ListNode, k int) *ListNode { if head == nil { return nil } slow := head fast := head index := 1 for { if fast.
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts21/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts20/" class="color-inherit dim link">
             ARTS20
             </a>
@@ -169,37 +193,18 @@ func cuttingRope(n int) int { var result int if n == 2 { return 1 } if n == 3 { 
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts18/" class="color-inherit dim link">
-            ARTS18
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 14- I. 剪绳子 2种解法：
- 贪心法，从长度为2的绳子开始找规律 可以知道每次得到越多的3的时候 乘积越大。这个解法是自己解出来的。 动态规划，看其他人借题答案学到的。关键点动态规划点就是每次先剪去一段长度，然后剩下的有剪或者不剪2种方法，取max。转移方程为：dp[i] = max(dp[i], max(j * (i - j), j * dp[i - j]))  // 贪心算法 找规律，可以得到将内容划分为3的时候 得到的乘积为最大 func cuttingRope1(n int) int { var result int if n == 2 { return 1 } if n == 3 { return 2 } remind := n % 3 if remind == 0 { result = int(math.Pow(3, float64(n/3))) } if remind == 1 { result = int(math.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts18/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts18/" class="link black dim">
+              ARTS18
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts17/" class="link black dim">
@@ -216,12 +221,6 @@ func cuttingRope(n int) int { var result int if n == 2 { return 1 } if n == 3 { 
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts15/" class="link black dim">
               ARTS15
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts14/" class="link black dim">
-              ARTS14
             </a>
           </h2>
         
