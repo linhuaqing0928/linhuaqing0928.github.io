@@ -105,6 +105,28 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        November 21, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts22/" class="link black dim">
+        ARTS22
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 17. 打印从1到最大的n位数 func printNumbers(n int) []int { count := math.Pow(10, float64(n)) result := make([]int, int(count-1)) index := 1 for index &lt; int(count) { result[index-1] = index index++ } return result } Review 5 Lessons That Golang Teaches To All Programmers 文章讲述了Go语言值得借鉴的几个特点：
+ 不过度设计。Go语言的设计理念确实一直是能简单就简单，less is more。不止是体现在文章里面举例的只有25个关键字、不提供while/for条件、不提供三元表达式等语言特性，还体现在官方一直宣扬的理念。比如不提供map和reduce等函数式常用方法、不鼓励使用运行时反射实现依赖注入而是通过wire生成代码的方式实现依赖注入。简单不过度设计就意味着代码可读性、性能好。 尽量不动核心代码。这个大家工作都应该深有感触，核心代码尽量少动。 使用Error处理错误，而不是Exception抛出。好处是让程序员充分考虑清楚整个数据流、错误场景。坏处就是代码里面一堆的 if err != nil。。 不用OOP也能解决问题。不要太纠结于面向对象，重要的是代码的解耦、可复用性、可读性。 多考虑考虑解决问题的各种方法。  TIP 这周学会了怎么使用grafana来可视化查看ES的数据
+ 建立data sources，指定数据索引 写query，查询出对应数据 选择对应数据作为X/Y轴即可  Share GO 编程模式：FUNCTIONAL OPTIONS Golang中常见的option设计探讨
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         November 14, 2021
       </div>
     
@@ -281,26 +303,6 @@ func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) 
       Algorithm 剑指 Offer 10- II. 青蛙跳台阶问题 简单动态规划题目，注意边界值和取模即可
 func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) result[0] = 1 result[1] = 1 index := 2 for index &lt;= n { result[index] = result[index-1] + result[index-2] result[index] = result[index] % 1000000007 index++ } return result[n] } Review Go: Understand the Empty Interface 文章介绍了Golang的interface{}的底层实现：
  Golang的runtime源码中，有一个专门的emptyInterface的结构体来表示interface{}。其实就是2个指针：一个代表这个interface的内置type，另一个则是存具体数据内容的指针。前者里面存了内置type具体的size、kind等内容。  type emptyInterface struct { typ *rtype // word 1 with type description word unsafe.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        August 22, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts12/" class="link black dim">
-        ARTS12
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 11. 旋转数组的最小数字  解法1：暴力破解法，从前往后遍历，如果index+1比index小就return 解法2：二分法。关键点就是数组本身是一个旋转数组，也就是半递增数组。所以以中间一个最小值点为边界，最小值左右侧都是递增的。通过拿mid点和最右侧点进行对比：   如果mid比right小，说明最小值不在右侧。 如果mid比right大，说明最小值不在左侧。 如果mid和right一样大小，说明存在重复元素。由于我们不知道重复元素有多少个，所以我们right&ndash;即可。  // 暴力遍历，时间复杂度O(n) func minArray1(numbers []int) int { length := len(numbers) index := 0 for index &lt; length-1 { if numbers[index] &gt; numbers[index+1] { return numbers[index+1] } index++ } return numbers[0] } // 二分法，时间复杂度O(logn) // 关键在于 func minArray(numbers []int) int { left := 0 right := len(numbers) - 1 for left &lt; right { mid := left + (right-left)/2 if numbers[mid] &lt; numbers[right] { right = mid continue } if numbers[mid] &gt; numbers[right] { left = mid + 1 continue } if numbers[mid] == numbers[right] { right-- continue } } return numbers[left] } Review Go Pointers: Why I Use Interfaces (in Go) 文章举了一个在Golang中使用interface的例子，来安利我们“面向interface编程“。
     </div>
   </div>
 
