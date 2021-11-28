@@ -105,6 +105,28 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        August 29, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts13/" class="link black dim">
+        ARTS13
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 10- II. 青蛙跳台阶问题 简单动态规划题目，注意边界值和取模即可
+func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) result[0] = 1 result[1] = 1 index := 2 for index &lt;= n { result[index] = result[index-1] + result[index-2] result[index] = result[index] % 1000000007 index++ } return result[n] } Review Go: Understand the Empty Interface 文章介绍了Golang的interface{}的底层实现：
+ Golang的runtime源码中，有一个专门的emptyInterface的结构体来表示interface{}。其实就是2个指针：一个代表这个interface的内置type，另一个则是存具体数据内容的指针。前者里面存了内置type具体的size、kind等内容。  type emptyInterface struct { typ *rtype // word 1 with type description word unsafe.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         August 22, 2021
       </div>
     
@@ -285,28 +307,6 @@ package reverse_print // Definition for singly-linked list. type ListNode struct
       Algorithm 剑指 Offer 03. 数组中重复的数字 最容易想到的解法就是map不重复算法
 // map不可重复解法 func findRepeatNumber(nums []int) int { unrepeat_map := make(map[int]int) for _, num := range nums { if _, ok := unrepeat_map[num]; ok { return num } else { unrepeat_map[num] = 1 } } return -1 } 看评论区有一个原地交换算法，很精妙。充分利用了长度为 n 的数组 nums 里的所有数字都在 0～n-1 的范围内这一条件，实现如下：
 // 原地交换算法 func findRepeatNumber1(nums []int) int { index := 0 for index &lt; len(nums) { if index == nums[index] { index++ continue } if nums[nums[index]] == nums[index] { return nums[index] } temp := nums[nums[index]] nums[nums[index]] = nums[index] nums[index] = temp } return -1 } Review The Wide World of Software Testing 文章从上到下介绍了测试金字塔的几个阶段，都是一些概念。很赞同里面对单元测试的几个定义：
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 7, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts5/" class="link black dim">
-        ARTS #5
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 09. 用两个栈实现队列
-看了官方解答之后才做出来的。栈A存push的内容，栈B存remove的内容。栈B空的时候，把栈A的内容一一remove出来，然后再一一push到栈B里面。
-type CQueue struct { stack1, stack2 *list.List } func Constructor() CQueue { return CQueue{ list.New(), list.New(), } } func (this *CQueue) AppendTail(value int) { this.stack1.PushBack(value) } func (this *CQueue) DeleteHead() int { if this.stack2.Len() &gt; 0 { back := this.stack2.Back() element := this.stack2.Remove(back) return element.(int) } index := 0 for index &lt; this.stack1.Len() { back := this.stack1.Back() element := this.stack1.Remove(back) this.stack2.PushBack(element) } if this.stack2.Len() == 0 { return -1 } back := this.
     </div>
   </div>
 

@@ -105,6 +105,26 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        November 28, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts23/" class="link black dim">
+        ARTS23
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 13. 机器人的运动范围  题目关键是它每次可以向左、右、上、下移动一格（不能移动到方格外）。理解了这个之后就是DFS就好了。 遍历过程维护一个map，存已经经过的点。  func movingCount(m int, n int, k int) int { result := 0 done := make(map[[2]int]int) dfs(0, 0, m, n, k, &amp;result, done) return result } func dfs(rowIndex, columnIndex, m, n, k int, count *int, done map[[2]int]int) { if rowIndex &gt;= m || columnIndex &gt;= n { return } if !enterPermission(rowIndex, columnIndex, k) { return } temp := [2]int{} temp[0] = columnIndex temp[1] = rowIndex _, ok := done[temp] if ok { return } done[temp] = 1 *count++ dfs(rowIndex, columnIndex+1, m, n, k, count, done) dfs(rowIndex+1, columnIndex, m, n, k, count, done) return } func enterPermission(rowIndex int, columnIndex int, k int) bool { return (numberSum(rowIndex) + numberSum(columnIndex)) &lt;= k } func numberSum(input int) int { a := input / 100 input = input % 100 b := input / 10 input = input % 10 return a + b + input } Review Context in Go 文章简单介绍了go标准库的context包，都是一些基本用法，刚好最近做需求频繁的用到context，复习一下。建议直接看标准库源码，注释写的很清晰。
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         November 21, 2021
       </div>
     
@@ -281,28 +301,6 @@ func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) 
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Algorithm 剑指 Offer 21. 调整数组顺序使奇数位于偶数前面 2个解法：
  头尾双指针   2个指针分别从头尾出发 判断头指针所在位置的值是奇数还是偶数 如果是奇数，则头指针++然后continue 如果是偶数，则交换头尾指针所在位置数组的数值。然后尾指针&ndash;，continue。  快慢双指针   2个指针一起从头部出发 判断快指针所在位置的值是奇数还是偶数 如果是奇数，则交换快慢指针所在位置数组的数值，然后快慢指针都++，continue。 如果是偶数，则快指针++ 然后continue  // 首位双指针 func exchange1(nums []int) []int { start := 0 end := len(nums) - 1 for start &lt; end { if nums[start]%2 == 1 { start++ continue } if nums[start]%2 == 0 { temp := nums[start] nums[start] = nums[end] nums[end] = temp end-- continue } } return nums } // 快慢双指针 func exchange(nums []int) []int { slow := 0 fast := 0 for fast &lt; len(nums) { if nums[fast]%2 == 1 { temp := nums[fast] nums[fast] = nums[slow] nums[slow] = temp fast++ slow++ continue } if nums[fast]%2 == 0 { fast++ continue } } return nums } Review Provider Pattern in Go and Why You Should Use It 文章讲述了provider模式的好处：
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        August 29, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts13/" class="link black dim">
-        ARTS13
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 10- II. 青蛙跳台阶问题 简单动态规划题目，注意边界值和取模即可
-func numWays(n int) int { if n &lt; 2 { return 1 } result := make([]int, n+1) result[0] = 1 result[1] = 1 index := 2 for index &lt;= n { result[index] = result[index-1] + result[index-2] result[index] = result[index] % 1000000007 index++ } return result[n] } Review Go: Understand the Empty Interface 文章介绍了Golang的interface{}的底层实现：
- Golang的runtime源码中，有一个专门的emptyInterface的结构体来表示interface{}。其实就是2个指针：一个代表这个interface的内置type，另一个则是存具体数据内容的指针。前者里面存了内置type具体的size、kind等内容。  type emptyInterface struct { typ *rtype // word 1 with type description word unsafe.
     </div>
   </div>
 

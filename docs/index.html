@@ -128,6 +128,30 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts23/" class="color-inherit dim link">
+            ARTS23
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 13. 机器人的运动范围  题目关键是它每次可以向左、右、上、下移动一格（不能移动到方格外）。理解了这个之后就是DFS就好了。 遍历过程维护一个map，存已经经过的点。  func movingCount(m int, n int, k int) int { result := 0 done := make(map[[2]int]int) dfs(0, 0, m, n, k, &amp;result, done) return result } func dfs(rowIndex, columnIndex, m, n, k int, count *int, done map[[2]int]int) { if rowIndex &gt;= m || columnIndex &gt;= n { return } if !enterPermission(rowIndex, columnIndex, k) { return } temp := [2]int{} temp[0] = columnIndex temp[1] = rowIndex _, ok := done[temp] if ok { return } done[temp] = 1 *count++ dfs(rowIndex, columnIndex+1, m, n, k, count, done) dfs(rowIndex+1, columnIndex, m, n, k, count, done) return } func enterPermission(rowIndex int, columnIndex int, k int) bool { return (numberSum(rowIndex) + numberSum(columnIndex)) &lt;= k } func numberSum(input int) int { a := input / 100 input = input % 100 b := input / 10 input = input % 10 return a + b + input } Review Context in Go 文章简单介绍了go标准库的context包，都是一些基本用法，刚好最近做需求频繁的用到context，复习一下。建议直接看标准库源码，注释写的很清晰。
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts23/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts22/" class="color-inherit dim link">
             ARTS22
             </a>
@@ -170,36 +194,18 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts20/" class="color-inherit dim link">
-            ARTS20
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 28. 对称的二叉树 // Definition for a binary tree node. type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func isSymmetric(root *TreeNode) bool { if root == nil { return true } return symmetric([]*TreeNode{root.Left, root.Right}) } func symmetric(roots []*TreeNode) bool { length := len(roots) index := 0 for index &lt; length/2 { temp1 := roots[index] temp2 := roots[length-1-index] if temp1 != nil &amp;&amp; temp2 != nil &amp;&amp; temp1.
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts20/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts20/" class="link black dim">
+              ARTS20
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts19/" class="link black dim">
@@ -216,12 +222,6 @@
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts17/" class="link black dim">
               ARTS17
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts16/" class="link black dim">
-              ARTS16
             </a>
           </h2>
         
