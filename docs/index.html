@@ -128,6 +128,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts25/" class="color-inherit dim link">
+            ARTS25
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 26. 树的子结构 2层嵌套dfs，外层dfs用来深度遍历以A的节点为root的子树，内层dfs用来遍历判断当前A的节点为root的子树和B是否一致。
+package is_sub_structure type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func isSubStructure(A *TreeNode, B *TreeNode) bool { if B == nil { return false } if dfs(A, B) { return true } if A.Left != nil { if isSubStructure(A.Left, B) { return true } } if A.Right != nil { if isSubStructure(A.Right, B) { return true } } return false } func dfs(A *TreeNode, B *TreeNode) bool { if A.
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts25/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts24/" class="color-inherit dim link">
             ARTS24
             </a>
@@ -168,38 +193,18 @@
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts22/" class="color-inherit dim link">
-            ARTS22
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 17. 打印从1到最大的n位数 func printNumbers(n int) []int { count := math.Pow(10, float64(n)) result := make([]int, int(count-1)) index := 1 for index &lt; int(count) { result[index-1] = index index++ } return result } Review 5 Lessons That Golang Teaches To All Programmers 文章讲述了Go语言值得借鉴的几个特点：
- 不过度设计。Go语言的设计理念确实一直是能简单就简单，less is more。不止是体现在文章里面举例的只有25个关键字、不提供while/for条件、不提供三元表达式等语言特性，还体现在官方一直宣扬的理念。比如不提供map和reduce等函数式常用方法、不鼓励使用运行时反射实现依赖注入而是通过wire生成代码的方式实现依赖注入。简单不过度设计就意味着代码可读性、性能好。 尽量不动核心代码。这个大家工作都应该深有感触，核心代码尽量少动。 使用Error处理错误，而不是Exception抛出。好处是让程序员充分考虑清楚整个数据流、错误场景。坏处就是代码里面一堆的 if err != nil。。 不用OOP也能解决问题。不要太纠结于面向对象，重要的是代码的解耦、可复用性、可读性。 多考虑考虑解决问题的各种方法。  TIP 这周学会了怎么使用grafana来可视化查看ES的数据
- 建立data sources，指定数据索引 写query，查询出对应数据 选择对应数据作为X/Y轴即可  Share GO 编程模式：FUNCTIONAL OPTIONS Golang中常见的option设计探讨
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts22/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts22/" class="link black dim">
+              ARTS22
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts21/" class="link black dim">
@@ -216,12 +221,6 @@
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts19/" class="link black dim">
               ARTS19
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts18/" class="link black dim">
-              ARTS18
             </a>
           </h2>
         

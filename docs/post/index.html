@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        December 13, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts25/" class="link black dim">
+        ARTS25
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 26. 树的子结构 2层嵌套dfs，外层dfs用来深度遍历以A的节点为root的子树，内层dfs用来遍历判断当前A的节点为root的子树和B是否一致。
+package is_sub_structure type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func isSubStructure(A *TreeNode, B *TreeNode) bool { if B == nil { return false } if dfs(A, B) { return true } if A.Left != nil { if isSubStructure(A.Left, B) { return true } } if A.Right != nil { if isSubStructure(A.Right, B) { return true } } return false } func dfs(A *TreeNode, B *TreeNode) bool { if A.
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         December 6, 2021
       </div>
     
@@ -279,27 +300,6 @@ func cuttingRope(n int) int { var result int if n == 2 { return 1 } if n == 3 { 
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Algorithm 剑指 Offer 15. 二进制中1的个数  自己的解法：不断的除和求余 官方解法：与运算  func hammingWeight1(num uint32) int { count := 0 index := 31 for index &gt;= 0 { multi := num / (uint32(math.Pow(2, float64(index)))) if multi == 1 { count++ } num = num % (uint32(math.Pow(2, float64(index)))) index-- } return count } func hammingWeight2(num uint32) int { count := 0 index := 0 for index &lt; 32 { if 1&lt;&lt;index&amp;num &gt; 0 { count++ } index++ } return count } Review Golang: Six Error Handling techniques to help you write elegant code 文章比较细，介绍了作者个人比较推荐的几个error处理方式。感觉比较有用的2点：
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        September 21, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts15/" class="link black dim">
-        ARTS15
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
-func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) { column := 0 for column &lt; len(board[0]) { if dfs(row, column, 0, &amp;board, word) { return true } column++ } row++ } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] !
     </div>
   </div>
 

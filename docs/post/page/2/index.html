@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        September 21, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts15/" class="link black dim">
+        ARTS15
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 12. 矩阵中的路径 自己用stack的方式解法，思路和官方是一样的，但是一直不能ac，后面留时间再debug下。 贴一下Golang实现的官方解题：
+func exist(board [][]byte, word string) bool { row := 0 for row &lt; len(board) { column := 0 for column &lt; len(board[0]) { if dfs(row, column, 0, &amp;board, word) { return true } column++ } row++ } return false } func dfs(i int, j int, k int, board *[][]byte, word string) bool { if !(0 &lt;= i &amp;&amp; i &lt; len(*board)) || !(0 &lt;= j &amp;&amp; j &lt; len((*board)[0])) || ((*board)[i][j] !
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         September 5, 2021
       </div>
     
@@ -284,28 +305,6 @@ type TreeNode struct { Val int Left *TreeNode Right *TreeNode } func buildTree(p
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Algorithm 剑指 Offer 06. 从尾到头打印链表 简单的反转单向链表，之前面试字节的时候遇到过，结果当时没做出来。。 这里比官方解法少一点时间复杂度。
 package reverse_print // Definition for singly-linked list. type ListNode struct { Val int Next *ListNode } func reversePrint(head *ListNode) []int { if head == nil { return nil } var next *ListNode var prev *ListNode for true { if head.Next != nil { next = head.Next head.Next = prev prev = head head = next continue } head.Next = prev break } var result []int for true { result = append(result, head.
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        July 16, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/golang%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%AE%9E%E6%88%98%E4%B8%80httpmock/" class="link black dim">
-        Golang单元测试实战：httpMock
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      单元测试定义 之前看过一篇文章，里面讲到单元测试的2个原则：
- Unit tests should be pretty lightweight and run fast since they don’t depend on anything external to the unit of code being tested The only way they can fail is by changing the unit of code they are testing  记录一下最近对自己的代码进行单元测试实践
-过程 被测代码 package http_request_demo import ( &quot;errors&quot; &quot;io/ioutil&quot; &quot;net/http&quot; ) func getAPIResponse(url string) (string, error) { var err error request, err := http.NewRequest(&quot;GET&quot;, url, nil) if err !
     </div>
   </div>
 
