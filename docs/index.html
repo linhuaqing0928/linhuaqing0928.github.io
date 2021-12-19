@@ -128,6 +128,31 @@
       
       <div class="blah w-100">
         <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://linhuaqing0928.github.io/post/arts26/" class="color-inherit dim link">
+            ARTS26
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          Algorithm 剑指 Offer 42. 连续子数组的最大和 动态规划解法，指针往前移动的话，需要在自己本身和自己本身+上一步最大值之和中比较。 转移公式为：f(i)=max{f(i−1)+nums[i],nums[i]}
+// 动态规划 func maxSubArray1(nums []int) int { results := make([]int, len(nums)) // 用来存储每个节点上的最大值 results[0] = nums[0] max := nums[0] current := 1 for current &lt; len(nums) { // 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和 if results[current-1]+nums[current] &gt; nums[current] { results[current] = results[current-1] + nums[current] } else { results[current] = nums[current] } // 顺便取最大值 if results[current] &gt; max { max = results[current] } current += 1 } return max } // 基于动态规划进一步优化空间复杂度成O（1） func maxSubArray(nums []int) int { current := 1 max := nums[0] pre := nums[0] for current &lt; len(nums) { if nums[current]+pre &gt; nums[current] { pre = nums[current] + pre } else { pre = nums[current] } current += 1 if pre &gt; max { max = pre } } return max } Review SOLID Principles in Golang Explained with Examples 文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。
+        </div>
+          <a href="http://linhuaqing0928.github.io/post/arts26/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
           <a href="http://linhuaqing0928.github.io/post/arts25/" class="color-inherit dim link">
             ARTS25
             </a>
@@ -169,36 +194,18 @@ package is_sub_structure type TreeNode struct { Val int Left *TreeNode Right *Tr
 
           </div>
         
-          <div class="relative w-100 mb4">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
-    <div class="flex flex-column flex-row-ns">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="http://linhuaqing0928.github.io/post/arts23/" class="color-inherit dim link">
-            ARTS23
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          Algorithm 剑指 Offer 13. 机器人的运动范围  题目关键是它每次可以向左、右、上、下移动一格（不能移动到方格外）。理解了这个之后就是DFS就好了。 遍历过程维护一个map，存已经经过的点。  func movingCount(m int, n int, k int) int { result := 0 done := make(map[[2]int]int) dfs(0, 0, m, n, k, &amp;result, done) return result } func dfs(rowIndex, columnIndex, m, n, k int, count *int, done map[[2]int]int) { if rowIndex &gt;= m || columnIndex &gt;= n { return } if !enterPermission(rowIndex, columnIndex, k) { return } temp := [2]int{} temp[0] = columnIndex temp[1] = rowIndex _, ok := done[temp] if ok { return } done[temp] = 1 *count++ dfs(rowIndex, columnIndex+1, m, n, k, count, done) dfs(rowIndex+1, columnIndex, m, n, k, count, done) return } func enterPermission(rowIndex int, columnIndex int, k int) bool { return (numberSum(rowIndex) + numberSum(columnIndex)) &lt;= k } func numberSum(input int) int { a := input / 100 input = input % 100 b := input / 10 input = input % 10 return a + b + input } Review Context in Go 文章简单介绍了go标准库的context包，都是一些基本用法，刚好最近做需求频繁的用到context，复习一下。建议直接看标准库源码，注释写的很清晰。
-        </div>
-          <a href="http://linhuaqing0928.github.io/post/arts23/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-        
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
       </section>
 
       
       <section class="w-100">
         <h1 class="f3">More</h1>
         
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://linhuaqing0928.github.io/post/arts23/" class="link black dim">
+              ARTS23
+            </a>
+          </h2>
         
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts22/" class="link black dim">
@@ -215,12 +222,6 @@ package is_sub_structure type TreeNode struct { Val int Left *TreeNode Right *Tr
           <h2 class="f5 fw4 mb4 dib mr3">
             <a href="http://linhuaqing0928.github.io/post/arts20/" class="link black dim">
               ARTS20
-            </a>
-          </h2>
-        
-          <h2 class="f5 fw4 mb4 dib mr3">
-            <a href="http://linhuaqing0928.github.io/post/arts19/" class="link black dim">
-              ARTS19
             </a>
           </h2>
         

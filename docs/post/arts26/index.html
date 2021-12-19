@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>ARTS26 | 林华清</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Algorithm 剑指 Offer 42. 连续子数组的最大和 动态规划解法，指针往前移动的话，需要在自己本身和自己本身&#43;上一步最大值之和中比较。 转移公式为：f(i)=max{f(i−1)&#43;nums[i],nums[i]}
+// 动态规划 func maxSubArray1(nums []int) int { results := make([]int, len(nums)) // 用来存储每个节点上的最大值 results[0] = nums[0] max := nums[0] current := 1 for current &lt; len(nums) { // 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和 if results[current-1]&#43;nums[current] &gt; nums[current] { results[current] = results[current-1] &#43; nums[current] } else { results[current] = nums[current] } // 顺便取最大值 if results[current] &gt; max { max = results[current] } current &#43;= 1 } return max } // 基于动态规划进一步优化空间复杂度成O（1） func maxSubArray(nums []int) int { current := 1 max := nums[0] pre := nums[0] for current &lt; len(nums) { if nums[current]&#43;pre &gt; nums[current] { pre = nums[current] &#43; pre } else { pre = nums[current] } current &#43;= 1 if pre &gt; max { max = pre } } return max } Review SOLID Principles in Golang Explained with Examples 文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。">
+    <meta name="generator" content="Hugo 0.85.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="ARTS26" />
+<meta property="og:description" content="Algorithm 剑指 Offer 42. 连续子数组的最大和 动态规划解法，指针往前移动的话，需要在自己本身和自己本身&#43;上一步最大值之和中比较。 转移公式为：f(i)=max{f(i−1)&#43;nums[i],nums[i]}
+// 动态规划 func maxSubArray1(nums []int) int { results := make([]int, len(nums)) // 用来存储每个节点上的最大值 results[0] = nums[0] max := nums[0] current := 1 for current &lt; len(nums) { // 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和 if results[current-1]&#43;nums[current] &gt; nums[current] { results[current] = results[current-1] &#43; nums[current] } else { results[current] = nums[current] } // 顺便取最大值 if results[current] &gt; max { max = results[current] } current &#43;= 1 } return max } // 基于动态规划进一步优化空间复杂度成O（1） func maxSubArray(nums []int) int { current := 1 max := nums[0] pre := nums[0] for current &lt; len(nums) { if nums[current]&#43;pre &gt; nums[current] { pre = nums[current] &#43; pre } else { pre = nums[current] } current &#43;= 1 if pre &gt; max { max = pre } } return max } Review SOLID Principles in Golang Explained with Examples 文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://linhuaqing0928.github.io/post/arts26/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-12-19T22:08:36+08:00" />
+<meta property="article:modified_time" content="2021-12-19T22:08:36+08:00" />
+
+<meta itemprop="name" content="ARTS26">
+<meta itemprop="description" content="Algorithm 剑指 Offer 42. 连续子数组的最大和 动态规划解法，指针往前移动的话，需要在自己本身和自己本身&#43;上一步最大值之和中比较。 转移公式为：f(i)=max{f(i−1)&#43;nums[i],nums[i]}
+// 动态规划 func maxSubArray1(nums []int) int { results := make([]int, len(nums)) // 用来存储每个节点上的最大值 results[0] = nums[0] max := nums[0] current := 1 for current &lt; len(nums) { // 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和 if results[current-1]&#43;nums[current] &gt; nums[current] { results[current] = results[current-1] &#43; nums[current] } else { results[current] = nums[current] } // 顺便取最大值 if results[current] &gt; max { max = results[current] } current &#43;= 1 } return max } // 基于动态规划进一步优化空间复杂度成O（1） func maxSubArray(nums []int) int { current := 1 max := nums[0] pre := nums[0] for current &lt; len(nums) { if nums[current]&#43;pre &gt; nums[current] { pre = nums[current] &#43; pre } else { pre = nums[current] } current &#43;= 1 if pre &gt; max { max = pre } } return max } Review SOLID Principles in Golang Explained with Examples 文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。"><meta itemprop="datePublished" content="2021-12-19T22:08:36+08:00" />
+<meta itemprop="dateModified" content="2021-12-19T22:08:36+08:00" />
+<meta itemprop="wordCount" content="173">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ARTS26"/>
+<meta name="twitter:description" content="Algorithm 剑指 Offer 42. 连续子数组的最大和 动态规划解法，指针往前移动的话，需要在自己本身和自己本身&#43;上一步最大值之和中比较。 转移公式为：f(i)=max{f(i−1)&#43;nums[i],nums[i]}
+// 动态规划 func maxSubArray1(nums []int) int { results := make([]int, len(nums)) // 用来存储每个节点上的最大值 results[0] = nums[0] max := nums[0] current := 1 for current &lt; len(nums) { // 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和 if results[current-1]&#43;nums[current] &gt; nums[current] { results[current] = results[current-1] &#43; nums[current] } else { results[current] = nums[current] } // 顺便取最大值 if results[current] &gt; max { max = results[current] } current &#43;= 1 } return max } // 基于动态规划进一步优化空间复杂度成O（1） func maxSubArray(nums []int) int { current := 1 max := nums[0] pre := nums[0] for current &lt; len(nums) { if nums[current]&#43;pre &gt; nums[current] { pre = nums[current] &#43; pre } else { pre = nums[current] } current &#43;= 1 if pre &gt; max { max = pre } } return max } Review SOLID Principles in Golang Explained with Examples 文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        林华清
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=http://linhuaqing0928.github.io/post/arts26/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=http://linhuaqing0928.github.io/post/arts26/&amp;text=ARTS26" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://linhuaqing0928.github.io/post/arts26/&amp;title=ARTS26" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">ARTS26</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2021-12-19T22:08:36+08:00">December 19, 2021</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h2 id="algorithm">Algorithm</h2>
+<h4 id="剑指-offer-42-连续子数组的最大和httpsleetcode-cncomproblemslian-xu-zi-shu-zu-de-zui-da-he-lcof"><a href="https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/">剑指 Offer 42. 连续子数组的最大和</a></h4>
+<p>动态规划解法，指针往前移动的话，需要在自己本身和自己本身+上一步最大值之和中比较。
+转移公式为：f(i)=max{f(i−1)+nums[i],nums[i]}</p>
+<pre><code>// 动态规划
+func maxSubArray1(nums []int) int {
+	results := make([]int, len(nums)) // 用来存储每个节点上的最大值
+	results[0] = nums[0]
+	max := nums[0]
+	current := 1
+	for current &lt; len(nums) {
+		// 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和
+		if results[current-1]+nums[current] &gt; nums[current] {
+			results[current] = results[current-1] + nums[current]
+		} else {
+			results[current] = nums[current]
+		}
+		// 顺便取最大值
+		if results[current] &gt; max {
+			max = results[current]
+		}
+		current += 1
+	}
+	return max
+}
+
+// 基于动态规划进一步优化空间复杂度成O（1）
+func maxSubArray(nums []int) int {
+	current := 1
+	max := nums[0]
+	pre := nums[0]
+	for current &lt; len(nums) {
+		if nums[current]+pre &gt; nums[current] {
+			pre = nums[current] + pre
+		} else {
+			pre = nums[current]
+		}
+		current += 1
+		if pre &gt; max {
+			max = pre
+		}
+	}
+	return max
+}
+</code></pre><h2 id="review">Review</h2>
+<p><a href="https://levelup.gitconnected.com/solid-principles-in-golang-explained-by-examples-4a4cccf47388">SOLID Principles in Golang Explained with Examples</a>
+文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。</p>
+<h2 id="tip">TIP</h2>
+<p>这周做业务过程，用到了Go sql.Rows的scan方法。踩了一个之前开发同学遗留的坑。</p>
+<p>如果Rows里面有null值，scan是会报错的，但是之前的历史代码没有对这个error进行判断而是默认全部成功，进而引发一系列报错。</p>
+<p>解决办法就是在初始化destination指针的时候，如果数据库对应field是nullable的话，可以声明destination为对应类型的sql.NullInt64或者sql.NullString等。然后使用XXX.Valid来判断这个值是Null还是确实是0或者“”值。</p>
+<h2 id="share">Share</h2>
+<p>这周开始跟着B站“操作系统32讲”来学习复习操作系统。</p>
+<h3 id="l1-什么是操作系统">L1 什么是操作系统：</h3>
+<ol>
+<li>操作系统主要职责：CPU管理、内存管理、终端管理、磁盘管理、文件管理、网络管理、电源管理、多核管理。</li>
+</ol>
+<h3 id="l2-揭开钢琴的盖子">L2 揭开钢琴的盖子</h3>
+<h4 id="图灵机">图灵机</h4>
+<p>图灵机的组成：控制器、纸带、读写头。</p>
+<p>图灵机模拟你在纸上计算3+2=5：图灵机的控制器代表人的大脑，纸带代表人手上的纸，读头代表人的眼睛，写头代表笔。一开始纸带上有3、2、+，读头获取到这些内容，然后控制器差表得到结果5，再通过写头把5写到纸带上。这样子图灵机就完成了3+2=5的计算模拟过程。</p>
+<p>上面描述的过程，图灵机的控制器会计算3+2是因为事先在控制器内有一张写死的表（或者逻辑），里面明确3+2是等于5。如果换成3*2的话，这时候就需要修改控制器的逻辑。也就是说这个图灵机是特定图灵机（只会计算特定逻辑）而不是通用图灵机。</p>
+<h4 id="通用图灵机">通用图灵机</h4>
+<p>将图灵机的+（算法）的逻辑挪到纸带上，控制器的职责变成解析纸带上内容然后在控制器上生成新的算法逻辑。这样子就变成了图灵机就变成通用了，使用者不用更换控制器，只需要更改纸带上的算法逻辑就可以实现程序计算。</p>
+<h4 id="冯诺依曼机">冯诺依曼机</h4>
+<p>冯诺依曼机五大部件：输入设备、输出设备、存储器、运算器、控制器。
+和通用图灵机相比，引入了存储程序（内存）的思想。也就是上诉的纸带拆分成了：输入设备、输出设备、存储器。</p>
+<p>之前的纸带同时负责算法逻辑的存储（+-*/）、输入数据数据（3、2）、计算结果（5）的呈现，控制器从纸带上载入算法逻辑。</p>
+<p>冯诺依曼机则是让程序员事先将之前放在纸带上的算法逻辑（指令）写到存储设备上，然后控制器（CPU）再从存储设备中载入这些指令进行解释执行，最后进行算法执行。这整个过程叫做：取指执行</p>
+<h4 id="打开电源发生了什么x86-pc">打开电源发生了什么（X86 PC）</h4>
+<p>名词：BIOS：basic input ouput system 基本输入输出系统
+实模式的寻址规则：CS：IP（CS左移4个位置+IP）</p>
+<ol>
+<li>刚开机时候CPU处于实模式</li>
+<li>一开始CS=0xFFFF；IP=0x0000（写死）</li>
+<li>CPU寻址到0xFFFF0（也就是ROM BIOS映射区，这个是固化在硬件里面的）</li>
+<li>检查RAM、磁盘、显示器、软硬磁盘。</li>
+<li>将磁盘的0磁道0扇区（引导扇区）内容读入然后放到0x7c00处</li>
+<li>然后设置cs=0x07c0，ip=0x0000，也即是下一次CPU会去引导扇区进行后续的取指执行操作。</li>
+<li>CPU再使用汇编依次读取boot扇区、setup扇区、system模型（os代码）载入到内存里面。</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://linhuaqing0928.github.io/" >
+    &copy;  林华清 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

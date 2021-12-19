@@ -105,6 +105,27 @@
             <div class="mb3 pa4 mid-gray overflow-hidden">
     
       <div class="f6">
+        December 19, 2021
+      </div>
+    
+    <h1 class="f3 near-black">
+      <a href="http://linhuaqing0928.github.io/post/arts26/" class="link black dim">
+        ARTS26
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      Algorithm 剑指 Offer 42. 连续子数组的最大和 动态规划解法，指针往前移动的话，需要在自己本身和自己本身+上一步最大值之和中比较。 转移公式为：f(i)=max{f(i−1)+nums[i],nums[i]}
+// 动态规划 func maxSubArray1(nums []int) int { results := make([]int, len(nums)) // 用来存储每个节点上的最大值 results[0] = nums[0] max := nums[0] current := 1 for current &lt; len(nums) { // 动态规则选择往前走一步最大值是自己本身还是自己本身和上一步最大值之和 if results[current-1]+nums[current] &gt; nums[current] { results[current] = results[current-1] + nums[current] } else { results[current] = nums[current] } // 顺便取最大值 if results[current] &gt; max { max = results[current] } current += 1 } return max } // 基于动态规划进一步优化空间复杂度成O（1） func maxSubArray(nums []int) int { current := 1 max := nums[0] pre := nums[0] for current &lt; len(nums) { if nums[current]+pre &gt; nums[current] { pre = nums[current] + pre } else { pre = nums[current] } current += 1 if pre &gt; max { max = pre } } return max } Review SOLID Principles in Golang Explained with Examples 文章举了个例子，如何重构一个方法让他更加符合单一职责原则。翻了下自己最近写的业务代码，一个service的Public方法就有230行代码，包含了调接口1、调接口2、调接口3、数据整合、调Dao层入DB，并且包含各种判空代码。距离单一职责还差得很远，后面还是需要多多注意，养成代码“洁癖”。
+    </div>
+  </div>
+
+        </div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white">
+          
+            <div class="mb3 pa4 mid-gray overflow-hidden">
+    
+      <div class="f6">
         December 13, 2021
       </div>
     
@@ -280,26 +301,6 @@ func cuttingRope(n int) int { var result int if n == 2 { return 1 } if n == 3 { 
     </h1>
     <div class="nested-links f5 lh-copy nested-copy-line-height">
       Algorithm 剑指 Offer 29. 顺时针打印矩阵 func spiralOrder(matrix [][]int) []int { if len(matrix) == 0 { return nil } result := make([]int, 0, len(matrix)*len(matrix[0])) xMin := 0 yMin := 1 // 这里需要注意，Y轴刚起步就占用了一个，所以初始为1 yMax := len(matrix) xMax := len(matrix[0]) x := 0 // 代表X轴 y := 0 // 代表Y轴 flag := true // true代表横着走，false代表竖着走 count := 1 // 1代表正向走，-1达标逆向走 for { if flag { if x &lt; xMin || x &gt;= xMax { break } } else { if y &lt; yMin || y &gt;= yMax { break } } result = append(result, matrix[y][x]) // 专项判断 if flag { xTemp := x + count if xTemp &gt;= xMax { flag = false count = 1 xMax-- } else if xTemp &lt; xMin { flag = false count = -1 xMin++ } } else if !
-    </div>
-  </div>
-
-        </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white">
-          
-            <div class="mb3 pa4 mid-gray overflow-hidden">
-    
-      <div class="f6">
-        September 21, 2021
-      </div>
-    
-    <h1 class="f3 near-black">
-      <a href="http://linhuaqing0928.github.io/post/arts16/" class="link black dim">
-        ARTS16
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Algorithm 剑指 Offer 15. 二进制中1的个数  自己的解法：不断的除和求余 官方解法：与运算  func hammingWeight1(num uint32) int { count := 0 index := 31 for index &gt;= 0 { multi := num / (uint32(math.Pow(2, float64(index)))) if multi == 1 { count++ } num = num % (uint32(math.Pow(2, float64(index)))) index-- } return count } func hammingWeight2(num uint32) int { count := 0 index := 0 for index &lt; 32 { if 1&lt;&lt;index&amp;num &gt; 0 { count++ } index++ } return count } Review Golang: Six Error Handling techniques to help you write elegant code 文章比较细，介绍了作者个人比较推荐的几个error处理方式。感觉比较有用的2点：
     </div>
   </div>
 
