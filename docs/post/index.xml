@@ -6,7 +6,17 @@
     <description>Recent content in Posts on 林华清</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 19 Dec 2021 22:08:36 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Jan 2022 23:35:10 +0800</lastBuildDate><atom:link href="http://linhuaqing0928.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ARTS27</title>
+      <link>http://linhuaqing0928.github.io/post/arts27/</link>
+      <pubDate>Mon, 03 Jan 2022 23:35:10 +0800</pubDate>
+      
+      <guid>http://linhuaqing0928.github.io/post/arts27/</guid>
+      <description>Algorithm 剑指 Offer 40. 最小的k个数 很容易想到使用最小堆来解决这个问题，Go里面的最小堆需要实现container/heap的Interface。
+import &amp;quot;container/heap&amp;quot; type IntHeap []int func (h *IntHeap) Push(x interface{}) { *h = append(*h, x.(int)) } func (h *IntHeap) Pop() interface{} { result := (*h)[len(*h)-1] *h = (*h)[0 : len(*h)-1] return result } func (h IntHeap) Len() int { return len(h) } func (h IntHeap) Less(i, j int) bool { return h[i] &amp;lt; h[j] } func (h IntHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] } func getLeastNumbers(arr []int, k int) []int { result := make([]int, 0, k) initArray := &amp;amp;IntHeap{} for _, ele := range arr { ele := ele heap.</description>
+    </item>
+    
     <item>
       <title>ARTS26</title>
       <link>http://linhuaqing0928.github.io/post/arts26/</link>
